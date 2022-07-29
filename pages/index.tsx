@@ -81,6 +81,7 @@ export default function Home() {
 					/>
 				</div>
 			</div>
+			<h1 className='font-bold text-3xl mb-4 text-black dark:text-white'>Projects</h1>
 			<MultiSelect
 				value={tagFilter}
 				onChange={(value) => setTagFilter(value as ProjectTag[])}
@@ -90,7 +91,6 @@ export default function Home() {
 				clearable
 				searchable
 			/>
-			<h1 className='font-bold text-3xl mb-4 text-black dark:text-white'>Projects</h1>
 			<div className='grid grid-cols-1 md:grid-cols-2 gap-8 mt-8' ref={animatedParent}>
 				{
 					filteredProjects.map((project) => (
