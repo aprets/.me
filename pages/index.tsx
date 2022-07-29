@@ -108,6 +108,9 @@ export default function Home() {
 					))
 				}
 			</div>
+			{!filteredProjects.length && (
+				<p className='text-gray-600 dark:text-gray-400 text-center'>No projects found</p>
+			)}
 		</main>
 	)
 }
