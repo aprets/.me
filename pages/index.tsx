@@ -58,6 +58,9 @@ export default function Home() {
 
 							<Group position='apart' mt='md'>
 								<Text size='lg' weight={500}>{title}</Text>
+								<ActionIcon size='lg' radius='md' variant='default' component='a' href={githubLink}>
+									<FaGithub size='70%' />
+								</ActionIcon>
 							</Group>
 
 							<Group position='left' spacing='xs' mt={4}>
