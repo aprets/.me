@@ -111,6 +111,7 @@ export default function Home() {
 			{!filteredProjects.length && (
 				<p className='text-gray-600 dark:text-gray-400 text-center'>No projects found</p>
 			)}
+			<Skeleton height='25vh' className='mt-56' radius='md' />
 		</main>
 	)
 }
