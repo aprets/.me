@@ -7,7 +7,13 @@ import {FaGithub} from 'react-icons/fa'
 
 export default function Home() {
 	const [tagFilter, setTagFilter] = useState<ProjectTag[]>([])
-
+	const filteredProjects = projects.filter(
+		// Only show projects which have all the tags in the filter
+		// aka the ones that don't have any tags that are not in the filter
+		(p) => !tagFilter.some(
+			(t) => !p.tags.includes(t),
+		),
+	)
 	return (
 		<main>
 			<div className='flex flex-col-reverse md:flex-row justify-between mb-24'>
@@ -27,10 +33,19 @@ export default function Home() {
 					/>
 				</div>
 			</div>
+			<MultiSelect
+				value={tagFilter}
+				onChange={(value) => setTagFilter(value as ProjectTag[])}
+				data={projectTags.map((tag) => ({label: tag, value: tag}))}
+				label='Filter'
+				placeholder='Pick tags to include'
+				clearable
+				searchable
+			/>
 			<h1 className='font-bold text-3xl mb-4 text-black dark:text-white'>Projects</h1>
 			<div className='grid grid-cols-1 md:grid-cols-2 gap-8 mt-8'>
 				{
-					projects.map(({title, brief, description, image, tags, githubLink}) => (
+					filteredProjects.map(({title, brief, description, image, tags, githubLink}) => (
 						<Card shadow='sm' p='lg' radius='md' withBorder>
 
 							<Card.Section withBorder>
