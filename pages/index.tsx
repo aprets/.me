@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import {Button, Text, Container, Group, Center, Loader, Paper, Badge, Image, Card, ActionIcon, MultiSelect, Skeleton} from '@mantine/core'
+import {openModal} from '@mantine/modals'
 import {projects, ProjectTag, projectTags} from 'lib/projectsData'
 import {useState} from 'react'
 
@@ -53,6 +54,12 @@ export default function Home() {
 									src={image}
 									height={256}
 									alt={title}
+									className='cursor-pointer'
+									onClick={() => openModal({
+										size: 'xl',
+										title,
+										children: <Image src={image} alt={title} />,
+									})}
 								/>
 							</Card.Section>
 
