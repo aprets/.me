@@ -1,10 +1,53 @@
 /* eslint-disable @next/next/no-img-element */
 import {Button, Text, Container, Group, Center, Loader, Paper, Badge, Image, Card, ActionIcon, MultiSelect, Skeleton} from '@mantine/core'
 import {openModal} from '@mantine/modals'
-import {projects, ProjectTag, projectTags} from 'lib/projectsData'
+import {Project, projects, ProjectTag, projectTags} from 'lib/projectsData'
 import {useState} from 'react'
 
 import {FaGithub} from 'react-icons/fa'
+
+function ProjectCard({title, brief, description, image, tags, githubLink} : Project) {
+	return (
+		<Card shadow='sm' p='lg' radius='md' withBorder>
+
+			<Card.Section withBorder>
+				<Image
+					src={image}
+					height={256}
+					alt={title}
+					className='cursor-pointer'
+					onClick={() => openModal({
+						size: 'xl',
+						title,
+						children: <Image src={image} alt={title} />,
+					})}
+				/>
+			</Card.Section>
+
+			<Group position='apart' mt='md'>
+				<Text size='lg' weight={500}>{title}</Text>
+				<ActionIcon size='lg' radius='md' variant='default' component='a' href={githubLink}>
+					<FaGithub size='70%' />
+				</ActionIcon>
+			</Group>
+			<Group position='left' spacing='xs' mt={4}>
+				{tags.map((tag) => (
+					<Badge key={tag} className='cursor-pointer' color='primary' variant='outline'>
+						{tag}
+					</Badge>
+				))}
+			</Group>
+			<p className='text-gray-800 font-medium dark:text-gray-200 mt-3 mb-2'>
+				{brief}
+			</p>
+
+			<p className='text-gray-700 dark:text-gray-300 mt-0'>
+				{description}
+			</p>
+
+		</Card>
+	)
+}
 
 export default function Home() {
 	const [tagFilter, setTagFilter] = useState<ProjectTag[]>([])
@@ -46,47 +89,12 @@ export default function Home() {
 			<h1 className='font-bold text-3xl mb-4 text-black dark:text-white'>Projects</h1>
 			<div className='grid grid-cols-1 md:grid-cols-2 gap-8 mt-8'>
 				{
-					filteredProjects.map(({title, brief, description, image, tags, githubLink}) => (
-						<Card shadow='sm' p='lg' radius='md' withBorder>
+					filteredProjects.map((project) => (
+						<ProjectCard
+							key={project.title}
+							{...project}
 
-							<Card.Section withBorder>
-								<Image
-									src={image}
-									height={256}
-									alt={title}
-									className='cursor-pointer'
-									onClick={() => openModal({
-										size: 'xl',
-										title,
-										children: <Image src={image} alt={title} />,
-									})}
-								/>
-							</Card.Section>
-
-							<Group position='apart' mt='md'>
-								<Text size='lg' weight={500}>{title}</Text>
-								<ActionIcon size='lg' radius='md' variant='default' component='a' href={githubLink}>
-									<FaGithub size='70%' />
-								</ActionIcon>
-							</Group>
-
-							<Group position='left' spacing='xs' mt={4}>
-								{tags.map((tag) => (
-									<Badge key={tag} className='cursor-pointer' color='primary' variant='outline'>
-										{tag}
-									</Badge>
-								))}
-							</Group>
-
-							<p className='text-gray-800 font-medium dark:text-gray-200 mt-3 mb-2'>
-								{brief}
-							</p>
-
-							<p className='text-gray-700 dark:text-gray-300 mt-0'>
-								{description}
-							</p>
-
-						</Card>
+						/>
 					))
 				}
 			</div>
