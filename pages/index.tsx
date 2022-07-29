@@ -6,7 +6,7 @@ import {useState} from 'react'
 
 import {FaGithub} from 'react-icons/fa'
 
-function ProjectCard({title, brief, description, image, tags, githubLink} : Project) {
+function ProjectCard({title, brief, description, image, tags, githubLink, onTagClick} : Project & {onTagClick: (tag: ProjectTag) => () => void}) {
 	return (
 		<Card shadow='sm' p='lg' radius='md' withBorder>
 
@@ -32,7 +32,7 @@ function ProjectCard({title, brief, description, image, tags, githubLink} : Proj
 			</Group>
 			<Group position='left' spacing='xs' mt={4}>
 				{tags.map((tag) => (
-					<Badge key={tag} className='cursor-pointer' color='primary' variant='outline'>
+					<Badge key={tag} className='cursor-pointer' color='primary' variant='outline' onClick={onTagClick(tag)}>
 						{tag}
 					</Badge>
 				))}
@@ -93,7 +93,13 @@ export default function Home() {
 						<ProjectCard
 							key={project.title}
 							{...project}
-
+							onTagClick={
+								(tag) => () => {
+									if (!tagFilter.includes(tag)) {
+										setTagFilter([...tagFilter, tag])
+									}
+								}
+							}
 						/>
 					))
 				}
