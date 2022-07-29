@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+body {
+    overflow: scroll; /* Show scrollbars */
+  }
+
+/* 
+body {
+    background-image: url('/test.svg');
+    background-position: right;
+    background-repeat: no-repeat;
+} */
