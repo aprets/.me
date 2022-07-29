@@ -56,7 +56,7 @@ export default function Home() {
 	const [tagFilter, setTagFilter] = useState<ProjectTag[]>([])
 	const filteredProjects = projects.filter(
 		// Only show projects which have all the tags in the filter
-		// aka the ones that don't have any tags that are not in the filter
+		// aka ensure no project does not include one of the tags in the filter
 		(p) => !tagFilter.some(
 			(t) => !p.tags.includes(t),
 		),
