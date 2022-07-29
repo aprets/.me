@@ -112,6 +112,8 @@ export default function Home() {
 				<p className='text-gray-600 dark:text-gray-400 text-center'>No projects found</p>
 			)}
 			<Skeleton height='25vh' className='mt-56' radius='md' />
+			<div className='relative -top-[14vh] z-20 text-center font-medium text-xl text-gray-600 mb-16'>More content coming...</div>
+
 		</main>
 	)
 }
