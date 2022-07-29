@@ -5,6 +5,7 @@ import {Project, projects, ProjectTag, projectTags} from 'lib/projectsData'
 import {useState} from 'react'
 
 import {FaGithub} from 'react-icons/fa'
+import {useAutoAnimate} from '@formkit/auto-animate/react'
 
 function ProjectCard({title, brief, description, image, tags, githubLink, onTagClick} : Project & {onTagClick: (tag: ProjectTag) => () => void}) {
 	return (
@@ -58,6 +59,7 @@ export default function Home() {
 			(t) => !p.tags.includes(t),
 		),
 	)
+	const [animatedParent] = useAutoAnimate<HTMLDivElement>()
 	return (
 		<main>
 			<div className='flex flex-col-reverse md:flex-row justify-between mb-24'>
@@ -87,7 +89,7 @@ export default function Home() {
 				searchable
 			/>
 			<h1 className='font-bold text-3xl mb-4 text-black dark:text-white'>Projects</h1>
-			<div className='grid grid-cols-1 md:grid-cols-2 gap-8 mt-8'>
+			<div className='grid grid-cols-1 md:grid-cols-2 gap-8 mt-8' ref={animatedParent}>
 				{
 					filteredProjects.map((project) => (
 						<ProjectCard
