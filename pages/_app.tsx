@@ -5,6 +5,7 @@ import {Container, MantineProvider} from '@mantine/core'
 import 'global.css'
 import {ModalsProvider} from '@mantine/modals'
 import {theme} from 'lib/mantineTheme'
+import {Navbar} from 'components/Navbar'
 
 export default function App(props: AppProps) {
 	const {Component, pageProps} = props
@@ -25,6 +26,11 @@ export default function App(props: AppProps) {
 			>
 				<ModalsProvider>
 					<Container size='xl'>
+						<Navbar links={[
+							{label: 'Home', url: '/'},
+							{label: 'About', url: '/about'},
+						]}
+						/>
 						<Component {...pageProps} />
 					</Container>
 				</ModalsProvider>
