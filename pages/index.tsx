@@ -71,6 +71,10 @@ export default function Home() {
 								))}
 							</Group>
 
+							<p className='text-gray-800 font-medium dark:text-gray-200 mt-3 mb-2'>
+								{brief}
+							</p>
+
 							<p className='text-gray-700 dark:text-gray-300 mt-0'>
 								{description}
 							</p>
