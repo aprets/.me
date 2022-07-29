@@ -4,6 +4,7 @@ import {Container, MantineProvider} from '@mantine/core'
 
 import 'global.css'
 import {ModalsProvider} from '@mantine/modals'
+import {theme} from 'lib/mantineTheme'
 
 export default function App(props: AppProps) {
 	const {Component, pageProps} = props
@@ -20,6 +21,7 @@ export default function App(props: AppProps) {
 			<MantineProvider
 				withGlobalStyles
 				withNormalizeCSS
+				theme={theme}
 			>
 				<ModalsProvider>
 					<Container size='xl'>
