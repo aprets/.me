@@ -1,11 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
-import {Button, Text, Container, Group, Center, Loader, Paper, Badge, Image, Card, ActionIcon, MultiSelect, Skeleton} from '@mantine/core'
-import {openModal} from '@mantine/modals'
-import {Project, projects, ProjectTag, projectTags} from 'lib/projectsData'
 import {useState} from 'react'
 
+import {Button, Text, Container, Group, Center, Loader, Paper, Badge, Image, Card, ActionIcon, MultiSelect, Skeleton} from '@mantine/core'
 import {FaGithub} from 'react-icons/fa'
+
+import {openModal} from '@mantine/modals'
 import {useAutoAnimate} from '@formkit/auto-animate/react'
+
+import {Project, projects, ProjectTag, projectTags} from 'lib/projectsData'
 
 function ProjectCard({title, brief, description, image, tags, githubLink, onTagClick} : Project & {onTagClick: (tag: ProjectTag) => () => void}) {
 	return (
