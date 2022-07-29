@@ -1,7 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import {Button, Text, Container, Group, Center, Loader, Paper, Badge, Image, Card, ActionIcon, MultiSelect, Skeleton} from '@mantine/core'
+import {projects, ProjectTag, projectTags} from 'lib/projectsData'
+import {useState} from 'react'
+
+import {FaGithub} from 'react-icons/fa'
 
 export default function Home() {
+	const [tagFilter, setTagFilter] = useState<ProjectTag[]>([])
+
 	return (
 		<main>
 			<div className='flex flex-col-reverse md:flex-row justify-between mb-24'>
@@ -20,6 +26,32 @@ export default function Home() {
 						title='I am under the water. Please help me.'
 					/>
 				</div>
+			</div>
+			<h1 className='font-bold text-3xl mb-4 text-black dark:text-white'>Projects</h1>
+			<div className='grid grid-cols-1 md:grid-cols-2 gap-8 mt-8'>
+				{
+					projects.map(({title, brief, description, image, tags, githubLink}) => (
+						<Card shadow='sm' p='lg' radius='md' withBorder>
+
+							<Card.Section withBorder>
+								<Image
+									src={image}
+									height={256}
+									alt={title}
+								/>
+							</Card.Section>
+
+							<Group position='apart' mt='md'>
+								<Text size='lg' weight={500}>{title}</Text>
+							</Group>
+
+							<p className='text-gray-700 dark:text-gray-300 mt-0'>
+								{description}
+							</p>
+
+						</Card>
+					))
+				}
 			</div>
 		</main>
 	)
