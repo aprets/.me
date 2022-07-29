@@ -60,6 +60,14 @@ export default function Home() {
 								<Text size='lg' weight={500}>{title}</Text>
 							</Group>
 
+							<Group position='left' spacing='xs' mt={4}>
+								{tags.map((tag) => (
+									<Badge key={tag} className='cursor-pointer' color='primary' variant='outline'>
+										{tag}
+									</Badge>
+								))}
+							</Group>
+
 							<p className='text-gray-700 dark:text-gray-300 mt-0'>
 								{description}
 							</p>
