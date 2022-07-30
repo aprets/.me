@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import {useState} from 'react'
 
+import Obfuscate from 'react-obfuscate'
 import {Button, Text, Container, Group, Center, Loader, Paper, Badge, Image, Card, ActionIcon, MultiSelect, Skeleton} from '@mantine/core'
 import {FaGithub} from 'react-icons/fa'
 
@@ -44,7 +45,7 @@ function ProjectCard({title, brief, description, image, tags, githubLink, onTagC
 				{brief}
 			</p>
 
-			<p className='text-gray-700 dark:text-gray-300 mt-0'>
+			<p className='text-gray-700 dark:text-gray-300'>
 				{description}
 			</p>
 
@@ -66,11 +67,21 @@ export default function Home() {
 		<main>
 			<div className='flex flex-col-reverse md:flex-row justify-between mb-24'>
 				<div className='flex flex-col'>
-					<h1 className='font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black dark:text-white'>Artur Prets</h1>
-					<h2 className='text-gray-700 dark:text-gray-200 mb-4'>
+					<h1 className='font-bold text-3xl md:text-5xl tracking-tight mb-2 mt-8 text-black dark:text-white'>Artur Prets</h1>
+					<h2 className='text-lg text-gray-700 dark:text-gray-200 mb-5'>
 						Human being currently at {' '} <span className='font-semibold'>Home</span>
 					</h2>
-					<p className='text-gray-600 dark:text-gray-400 mb-4'>Help I am under the water! Help I am under the water! Help I am under the water! Help I am under the water! </p>
+					<p className='text-lg text-gray-600 dark:text-gray-500 mb-5'>Help I am under the water! Help I am under the water! Help I am under the water! Help I am under the water! </p>
+					<div className='text-lg text-gray-500 dark:text-gray-500'>
+						<p className='mb-3'>
+							<Obfuscate
+								className='no-underline text-inherit'
+								email='TEST'
+							/>
+						</p>
+						<p className='mb-3'>@aprets on GitHub</p>
+						<p className='mb-3'>/in/test on LinkedIn</p>
+					</div>
 				</div>
 				<div className='flex justify-center'>
 					<img
