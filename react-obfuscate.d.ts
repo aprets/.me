@@ -15,4 +15,6 @@ export default (props: {
 	obfuscateChildren?: boolean,
 	element?: string,
 	onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void,
+	className: string,
+	[key: string]: any,
 }) => React.ReactNode
