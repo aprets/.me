@@ -58,7 +58,7 @@ export const projects: Project[] = [
 				(GCP for the prototype).
 				Works on top of the user&apos;s stack (GCP, Terraform Cloud) leaving them in full control of their infrastructure.
 				Multiple workspaces can be managed which can contain Virtual Machines, SQL Databases and Serverless Docker Container deployments.
-				The project offers comprehensive guidance and help to maximally simplify operations and allow easy onboarding of new hires and 
+				The project offers comprehensive guidance and help to maximally simplify operations and allow easy onboarding of new hires and
 				engineers with limited cloud experience.
 			</>
 		),
@@ -66,37 +66,37 @@ export const projects: Project[] = [
 		githubLink: 'https://github.com/aprets/clearpath',
 		tags: ['JavaScript', 'TypeScript', 'React', 'Next', 'Google Cloud', 'Docker', 'Terraform', 'Firebase', 'GitHub Actions', 'Mantine'],
 	},
-	{
-		title: 'ubnt-cloudflared',
-		brief: 'Install & Run Cloudflare Tunnel on Ubiquiti network gateways',
-		description: (
-			<>
-				This project offers &quot;heroku-like&quot; experience for managing infrastructure with full flexibility and pricing of public cloud
-				(GCP for the prototype).
-				Works on top of the user&apos;s stack (GCP, Terraform Cloud) leaving them in full control of their infrastructure.
-				Multiple workspaces can be managed which can contain Virtual Machines, SQL Databases and Serverless Docker Container deployments.
-				The project offers comprehensive guidance and help to maximally simplify operations and allow easy onboarding of new hires and 
-				engineers with limited cloud experience.
-			</>
-		),
-		image: '/ubnt-cloudflared.png',
-		githubLink: 'https://github.com/aprets/ubnt-cloudflared',
-		tags: ['JavaScript', 'TypeScript', 'React', 'Next', 'Google Cloud', 'Docker', 'Terraform', 'Firebase', 'GitHub Actions', 'Mantine'],
-	},
-	{
-		title: 'Mantine 2',
-		brief: 'A new version of Mantine',
-		description: 'A React app for managing your personal finances',
-		image: 'https://source.unsplash.com/random',
-		githubLink: 'https://github.com/aprets/Chatty-Chef',
-		tags: ['React', 'Firebase'],
-	},
-	{
-		title: 'Mantine 3',
-		brief: 'A new version of Mantine',
-		description: 'A React app for managing your personal finances',
-		image: 'https://source.unsplash.com/random',
-		githubLink: 'https://github.com/aprets/Chatty-Chef',
-		tags: ['React'],
-	},
+	// {
+	// 	title: 'ubnt-cloudflared',
+	// 	brief: 'Install & Run Cloudflare Tunnel on Ubiquiti network gateways',
+	// 	description: (
+	// 		<>
+	// 			This project offers &quot;heroku-like&quot; experience for managing infrastructure with full flexibility and pricing of public cloud
+	// 			(GCP for the prototype).
+	// 			Works on top of the user&apos;s stack (GCP, Terraform Cloud) leaving them in full control of their infrastructure.
+	// 			Multiple workspaces can be managed which can contain Virtual Machines, SQL Databases and Serverless Docker Container deployments.
+	// 			The project offers comprehensive guidance and help to maximally simplify operations and allow easy onboarding of new hires and
+	// 			engineers with limited cloud experience.
+	// 		</>
+	// 	),
+	// 	image: '/ubnt-cloudflared.png',
+	// 	githubLink: 'https://github.com/aprets/ubnt-cloudflared',
+	// 	tags: ['JavaScript', 'TypeScript', 'React', 'Next', 'Google Cloud', 'Docker', 'Terraform', 'Firebase', 'GitHub Actions', 'Mantine'],
+	// },
+	// {
+	// 	title: 'Mantine 2',
+	// 	brief: 'A new version of Mantine',
+	// 	description: 'A React app for managing your personal finances',
+	// 	image: 'https://source.unsplash.com/random',
+	// 	githubLink: 'https://github.com/aprets/Chatty-Chef',
+	// 	tags: ['React', 'Firebase'],
+	// },
+	// {
+	// 	title: 'Mantine 3',
+	// 	brief: 'A new version of Mantine',
+	// 	description: 'A React app for managing your personal finances',
+	// 	image: 'https://source.unsplash.com/random',
+	// 	githubLink: 'https://github.com/aprets/Chatty-Chef',
+	// 	tags: ['React'],
+	// },
 ]
