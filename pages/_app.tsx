@@ -29,6 +29,7 @@ export default function App(props: AppProps) {
 						<Navbar links={[
 							{label: 'Home', url: '/'},
 							{label: 'About', url: '/about'},
+							{label: 'Benchmark', url: '/benchmark'},
 						]}
 						/>
 						<Component {...pageProps} />
