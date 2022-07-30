@@ -1,10 +1,7 @@
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 
-const stringSnakeCaseToTitleCase = (input: string) => input.replace(
-	/\w\S*/g,
-	(txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(),
-)
+const snakeCaseToTitleCase = (input: string) => input.toLowerCase().replace(/^_*(.)|_+(.)/g, (s, c, d) => (c ? c.toUpperCase() : ` ${d.toUpperCase()}`))
 
 interface NavbarProps {
 	links: {url: string; label: string}[];
@@ -34,7 +31,7 @@ export default function Navbar({links}: NavbarProps) {
 			</div>
 			<Link href='/benchmark'>
 				<a href='/benchmark' className='text-inherit no-underline'>
-					Loaded from {stringSnakeCaseToTitleCase(process.env.NEXT_PUBLIC_HOST ?? 'DEV')}
+					Loaded from {snakeCaseToTitleCase(process.env.NEXT_PUBLIC_HOST ?? 'DEV_SERVER')}
 				</a>
 			</Link>
 		</nav>
