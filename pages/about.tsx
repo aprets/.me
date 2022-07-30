@@ -5,7 +5,7 @@ import Link from 'next/link'
 export default function Home() {
 	return (
 		<Text>
-			TESTING IN PROGRESS
+			Coming soon...
 		</Text>
 
 	)
