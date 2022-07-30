@@ -74,13 +74,14 @@ export default function Home() {
 					<p className='text-lg text-gray-600 dark:text-gray-500 mb-5'>Help I am under the water! Help I am under the water! Help I am under the water! Help I am under the water! </p>
 					<div className='text-lg text-gray-500 dark:text-gray-500'>
 						<p className='mb-3'>
-							<Obfuscate
-								className='no-underline text-inherit'
-								email='TEST'
-							/>
+							<Obfuscate className='text-inherit' email={atob('aGVsbG8td2ViQGFwcmV0cy5tZQ')} />
 						</p>
-						<p className='mb-3'>@aprets on GitHub</p>
-						<p className='mb-3'>/in/test on LinkedIn</p>
+						<p className='mb-3'>
+							<a className='text-inherit' href='https://github.com/aprets'>@aprets on GitHub</a>
+						</p>
+						<p className='mb-3'>
+							<a className='text-inherit' href='https://www.linkedin.com/in/aprets/'>/in/aprets on LinkedIn</a>
+						</p>
 					</div>
 				</div>
 				<div className='flex justify-center'>
