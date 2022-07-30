@@ -2,7 +2,7 @@ import {Button, Text, Container, Group, Center, Loader, Paper, Badge, Title} fro
 
 import Link from 'next/link'
 
-export default function Home() {
+export default function About() {
 	return (
 		<Text>
 			Coming soon...
