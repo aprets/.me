@@ -6,6 +6,7 @@ import 'global.css'
 import {ModalsProvider} from '@mantine/modals'
 import {theme} from 'lib/mantineTheme'
 import Navbar from 'components/Navbar'
+import {GoogleAnalytics} from 'components/GoogleAnalytics'
 
 export default function App(props: AppProps) {
 	const {Component, pageProps} = props
@@ -18,6 +19,8 @@ export default function App(props: AppProps) {
 				<link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png' />
 				<link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png' />
 			</Head>
+
+			<GoogleAnalytics />
 
 			<MantineProvider
 				withGlobalStyles
