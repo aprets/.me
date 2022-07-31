@@ -1,4 +1,4 @@
-import { humanHostName } from 'lib/hostBenchmark';
+import {humanHostName} from 'lib/hostBenchmark'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 
