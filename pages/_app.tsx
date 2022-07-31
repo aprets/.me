@@ -1,6 +1,7 @@
 import {useEffect} from 'react'
 import {AppProps} from 'next/app'
 import Head from 'next/head'
+import Script from 'next/script'
 import {Container, MantineProvider} from '@mantine/core'
 import {ModalsProvider} from '@mantine/modals'
 
@@ -29,6 +30,11 @@ export default function App(props: AppProps) {
 				<link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png' />
 			</Head>
 
+			<Script
+				src='https://static.cloudflareinsights.com/beacon.min.js'
+				data-cf-beacon='{"token": "ad92d345a44d495692242e92e95166a7"}'
+				strategy='afterInteractive'
+			/>
 			<GoogleAnalytics />
 
 			<MantineProvider
