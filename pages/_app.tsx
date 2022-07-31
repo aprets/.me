@@ -1,15 +1,24 @@
+import {useEffect} from 'react'
 import {AppProps} from 'next/app'
 import Head from 'next/head'
 import {Container, MantineProvider} from '@mantine/core'
+import {ModalsProvider} from '@mantine/modals'
+
+import {hotjar} from 'react-hotjar'
 
 import 'global.css'
-import {ModalsProvider} from '@mantine/modals'
+
 import {theme} from 'lib/mantineTheme'
+
 import Navbar from 'components/Navbar'
 import {GoogleAnalytics} from 'components/GoogleAnalytics'
 
 export default function App(props: AppProps) {
 	const {Component, pageProps} = props
+
+	useEffect(() => {
+		hotjar.initialize(3089209, 6)
+	}, [])
 
 	return (
 		<>
