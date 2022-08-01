@@ -1,4 +1,4 @@
-import {humanHostName} from 'lib/hostBenchmark'
+import {humanHostName, roundMetric, useWebVitals} from 'lib/hostBenchmark'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 
@@ -7,6 +7,7 @@ interface NavbarProps {
 }
 
 export default function Navbar({links}: NavbarProps) {
+	const vitals = useWebVitals()
 	const {pathname: currentPathname} = useRouter()
 
 	const items = links.map(({url, label}) => {
@@ -31,6 +32,11 @@ export default function Navbar({links}: NavbarProps) {
 			<Link href='/benchmark'>
 				<a href='/benchmark' className='text-inherit no-underline'>
 					Loaded from {humanHostName}
+					{vitals && (
+						<>
+							{' '}(TTFB: {roundMetric(vitals.ttfb)}ms, FCP: {roundMetric(vitals.fcp)}ms)
+						</>
+					)}
 				</a>
 			</Link>
 		</nav>
