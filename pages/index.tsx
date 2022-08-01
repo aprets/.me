@@ -41,11 +41,11 @@ function ProjectCard({title, brief, description, image, tags, githubLink, onTagC
 					</Badge>
 				))}
 			</Group>
-			<p className='text-gray-800 font-medium dark:text-gray-200 mt-3 mb-2'>
+			<p className='text-gray-800 font-medium mt-3 mb-2'>
 				{brief}
 			</p>
 
-			<p className='text-gray-700 dark:text-gray-300'>
+			<p className='text-gray-700'>
 				{description}
 			</p>
 
@@ -67,12 +67,12 @@ export default function Home() {
 		<main>
 			<div className='flex flex-col-reverse md:flex-row justify-between mb-24'>
 				<div className='flex flex-col'>
-					<h1 className='font-bold text-3xl md:text-5xl tracking-tight mb-2 mt-8 text-black dark:text-white'>Artur Prets</h1>
-					<h2 className='text-lg text-gray-700 dark:text-gray-200 mb-5'>
+					<h1 className='font-bold text-3xl md:text-5xl tracking-tight mb-2 mt-8 text-black'>Artur Prets</h1>
+					<h2 className='text-lg text-gray-700 mb-5'>
 						Human being currently at {' '} <span className='font-semibold'>Home</span>
 					</h2>
-					<p className='text-lg text-gray-600 dark:text-gray-500 mb-5'>Help I am under the water! Help I am under the water! Help I am under the water! Help I am under the water! </p>
-					<div className='text-lg text-gray-500 dark:text-gray-500'>
+					<p className='text-lg text-gray-600 mb-5'>Help I am under the water! Help I am under the water! Help I am under the water! Help I am under the water! </p>
+					<div className='text-lg text-gray-500'>
 						<p className='mb-3'>
 							<Obfuscate className='text-inherit' email={atob('aGVsbG8td2ViQGFwcmV0cy5tZQ')} />
 						</p>
@@ -93,7 +93,7 @@ export default function Home() {
 					/>
 				</div>
 			</div>
-			<h1 className='font-bold text-3xl mb-4 text-black dark:text-white'>Projects</h1>
+			<h1 className='font-bold text-3xl mb-4 text-black'>Projects</h1>
 			<MultiSelect
 				value={tagFilter}
 				onChange={(value) => setTagFilter(value as ProjectTag[])}
@@ -121,7 +121,7 @@ export default function Home() {
 				}
 			</div>
 			{!filteredProjects.length && (
-				<p className='text-gray-600 dark:text-gray-400 text-center'>No projects found</p>
+				<p className='text-gray-600 text-center'>No projects found</p>
 			)}
 			<Skeleton height='25vh' className='mt-56' radius='md' />
 			<div className='relative -top-[14vh] z-20 text-center font-medium text-xl text-gray-600 mb-16'>More content coming...</div>
