@@ -15,6 +15,7 @@ import Navbar from 'components/Navbar'
 import {GoogleAnalytics} from 'components/GoogleAnalytics'
 import {setMetrics} from 'lib/hostBenchmark'
 
+let gotBenchmarkVitals = false
 let fcp: number | undefined
 let ttfb: number | undefined
 
@@ -29,7 +30,8 @@ export function reportWebVitals(metric: NextWebVitalsMetric) {
 		default:
 			break
 	}
-	if (fcp && ttfb) {
+	if (!gotBenchmarkVitals && fcp && ttfb) {
+		gotBenchmarkVitals = true
 		setMetrics({fcp, ttfb})
 	}
 }
