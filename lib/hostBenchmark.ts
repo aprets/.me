@@ -8,6 +8,8 @@ const snakeCaseToTitleCase = (input: string) => input.toLowerCase().replace(/^_*
 
 export const humanHostName = snakeCaseToTitleCase(hostTag)
 
+export const roundMetric = (metric: number) => Math.round(metric)
+
 interface Metrics {
 	ttfb: number,
 	fcp: number,
