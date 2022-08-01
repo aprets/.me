@@ -15,7 +15,6 @@ export default function Navbar({links}: NavbarProps) {
 		return (
 			<Link href={url} key={label}>
 				<a
-					href={url}
 					className={`block py-2 px-3 rounded-md no-underline text-base leading-none font-medium ${isActive ? 'text-primary-600 bg-primary-100' : 'text-gray-700 hover:bg-gray-50'}`}
 				>
 					{label}
@@ -25,20 +24,22 @@ export default function Navbar({links}: NavbarProps) {
 	})
 
 	return (
-		<nav className='mt-5 mb-10 flex flex-row justify-between'>
+		<nav className='mt-1 md:mt-5 mb-10 flex flex-col-reverse md:flex-row justify-between'>
 			<div className='flex flex-row items-center flex-wrap justify-start gap-4'>
 				{items}
 			</div>
-			<Link href='/benchmark'>
-				<a href='/benchmark' className='text-inherit no-underline'>
-					Loaded from {humanHostName}
-					{vitals && (
-						<>
-							{' '}(TTFB: {roundMetric(vitals.ttfb)}ms, FCP: {roundMetric(vitals.fcp)}ms)
-						</>
-					)}
-				</a>
-			</Link>
+			<div className='flex flex-col justify-center mb-2 md:mb-0'>
+				<Link href='/benchmark'>
+					<a className='text-inherit no-underline text-gray-900 text-sm' title='Click to learn more'>
+						Loaded from {humanHostName}
+						{vitals && (
+							<span className='text-xs'>
+								{' '}(TTFB: {roundMetric(vitals.ttfb)}ms, FCP: {roundMetric(vitals.fcp)}ms)
+							</span>
+						)}
+					</a>
+				</Link>
+			</div>
 		</nav>
 	)
 }
