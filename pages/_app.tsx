@@ -1,5 +1,5 @@
 import {useEffect} from 'react'
-import {AppProps} from 'next/app'
+import {AppProps, NextWebVitalsMetric} from 'next/app'
 import Head from 'next/head'
 import Script from 'next/script'
 import {Container, MantineProvider} from '@mantine/core'
@@ -13,6 +13,26 @@ import {theme} from 'lib/mantineTheme'
 
 import Navbar from 'components/Navbar'
 import {GoogleAnalytics} from 'components/GoogleAnalytics'
+import {setMetrics} from 'lib/hostBenchmark'
+
+let fcp: number | undefined
+let ttfb: number | undefined
+
+export function reportWebVitals(metric: NextWebVitalsMetric) {
+	switch (metric.name) {
+		case 'FCP':
+			fcp = metric.value
+			break
+		case 'TTFB':
+			ttfb = metric.value
+			break
+		default:
+			break
+	}
+	if (fcp && ttfb) {
+		setMetrics({fcp, ttfb})
+	}
+}
 
 export default function App(props: AppProps) {
 	const {Component, pageProps} = props
