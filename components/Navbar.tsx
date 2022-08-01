@@ -1,6 +1,8 @@
+import {ActionIcon} from '@mantine/core'
 import {humanHostName, roundMetric, useWebVitals} from 'lib/hostBenchmark'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
+import {FaGithub} from 'react-icons/fa'
 
 interface NavbarProps {
 	links: {url: string; label: string}[];
@@ -24,19 +26,30 @@ export default function Navbar({links}: NavbarProps) {
 	})
 
 	return (
-		<nav className='mt-1 md:mt-5 mb-10 flex flex-col-reverse md:flex-row justify-between'>
+		<nav className='mt-5 mb-10 flex flex-col-reverse md:flex-row justify-between'>
 			<div className='flex flex-row items-center flex-wrap justify-start gap-4'>
 				{items}
 			</div>
-			<div className='flex flex-col justify-center mb-2 md:mb-0'>
+			<div className='flex flex-col justify-center mb-4 md:mb-0'>
 				<Link href='/benchmark'>
 					<a className='text-inherit no-underline text-gray-900 text-sm' title='Click to learn more'>
-						Loaded from {humanHostName}
-						{vitals && (
-							<span className='text-xs'>
-								{' '}(TTFB: {roundMetric(vitals.ttfb)}ms, FCP: {roundMetric(vitals.fcp)}ms)
-							</span>
-						)}
+						<span className='inline-block rounded-full bg-primary-100 pl-3'>
+							Loaded from {humanHostName} {' '}
+							{vitals && (
+								<>
+									<span className='text-xs'>
+										(
+										TTFB: {roundMetric(vitals.ttfb)}<span className='text-[0.65rem]'>ms</span>,
+										FCP: {roundMetric(vitals.fcp)}<span className='text-[0.65rem]'>ms</span>
+										)
+									</span>
+									{' '}
+									<div className='text-lg inline-block font-bold text-white bg-primary-700 rounded-full px-[0.6rem] py-[0.0rem]'>
+										?
+									</div>
+								</>
+							)}
+						</span>
 					</a>
 				</Link>
 			</div>
