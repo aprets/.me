@@ -20,7 +20,6 @@ function ProjectCard({title, brief, description, image, tags, githubLink, onTagC
 			<Card.Section withBorder className='relative h-64'>
 				<Image
 					src={image}
-					height={256}
 					layout='fill'
 					alt={title}
 					className='cursor-pointer object-cover'
@@ -34,9 +33,15 @@ function ProjectCard({title, brief, description, image, tags, githubLink, onTagC
 
 			<Group position='apart' mt='md'>
 				<Text size='lg' weight={500}>{title}</Text>
-				<ActionIcon size='lg' radius='md' variant='default' component='a' href={githubLink} aria-label='Github'>
-					<FaGithub size='70%' />
-				</ActionIcon>
+				{githubLink ? (
+					<ActionIcon size='lg' radius='md' variant='default' component='a' href={githubLink} aria-label='Github'>
+						<FaGithub size='70%' />
+					</ActionIcon>
+				) : (
+					<Badge color='dark' variant='dot'>
+						proprietary
+					</Badge>
+				)}
 			</Group>
 			<Group position='left' spacing='xs' mt={4}>
 				{tags.map((tag) => (
@@ -93,9 +98,9 @@ export default function Home() {
 						src={pfpBlob}
 						width={384}
 						height={364}
+						priority
 						unoptimized
 						layout='fixed'
-						// className='w-96 h-auto'
 						alt='Profile'
 						title='I am under the water. Please help me.'
 					/>
