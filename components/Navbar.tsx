@@ -32,7 +32,7 @@ export default function Navbar({links}: NavbarProps) {
 			</div>
 			<div className='flex flex-col justify-center mb-4 md:mb-0'>
 				<Link href='/benchmark'>
-					<a className='text-inherit no-underline text-primary-900 text-sm' title='Click to learn more'>
+					<a className='text-inherit no-underline text-primary-800 text-sm' title='Click to learn more'>
 						<span className='inline-block rounded-full bg-primary-100 pl-3'>
 							<span className='font-medium'>Loaded from {humanHostName} {' '}</span>
 							<span className='text-xs'>
