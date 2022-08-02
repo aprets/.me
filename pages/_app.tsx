@@ -74,7 +74,6 @@ export default function App(props: AppProps) {
 						<Container size='xl'>
 							<Navbar links={[
 								{label: 'Home', url: '/'},
-								{label: 'About', url: '/about'},
 								{label: 'Benchmark', url: '/benchmark'},
 							]}
 							/>
