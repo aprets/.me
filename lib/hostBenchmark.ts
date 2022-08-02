@@ -22,25 +22,27 @@ let metrics: Metrics | undefined
 const metricsCallbacks: ((update: typeof metrics) => void)[] = []
 
 export const setMetrics = (update: Metrics) => {
-	console.log(update)
 	metrics = update
 	metricsCallbacks.forEach((cb) => cb(metrics))
-	const beaconBody = JSON.stringify({
-		host: hostTag,
-		ttfb: metrics.ttfb,
-		fcp: metrics.fcp,
-	})
-	if (navigator.sendBeacon) {
-		navigator.sendBeacon(beaconUrl, beaconBody)
-	} else {
-		fetch(beaconUrl, {
-			body: beaconBody,
-			method: 'POST',
-			keepalive: false,
-			headers: {
-				'Content-Type': 'application/json',
-			},
+	if (hostTag !== 'DEV_SERVER') {
+		const beaconBody = JSON.stringify({
+			host: hostTag,
+			ttfb: metrics.ttfb,
+			fcp: metrics.fcp,
 		})
+
+		if (navigator.sendBeacon) {
+			navigator.sendBeacon(beaconUrl, beaconBody)
+		} else {
+			fetch(beaconUrl, {
+				body: beaconBody,
+				method: 'POST',
+				keepalive: false,
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			})
+		}
 	}
 }
 
