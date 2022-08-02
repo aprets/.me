@@ -13,7 +13,7 @@ import {theme} from 'lib/mantineTheme'
 
 import Navbar from 'components/Navbar'
 import {GoogleAnalytics} from 'components/GoogleAnalytics'
-import {setMetrics} from 'lib/hostBenchmark'
+import {hostTag, setMetrics} from 'lib/hostBenchmark'
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
 import LogRocket from 'logrocket'
 
@@ -41,10 +41,13 @@ export function reportWebVitals(metric: NextWebVitalsMetric) {
 export default function App(props: AppProps) {
 	const {Component, pageProps} = props
 
-	useEffect(() => {
-		LogRocket.init('d3kwes/apretsme')
-		hotjar.initialize(3089209, 6)
-	}, [])
+	if (hostTag !== 'DEV_SERVER') {
+		// eslint-disable-next-line react-hooks/rules-of-hooks
+		useEffect(() => {
+			LogRocket.init('d3kwes/apretsme')
+			hotjar.initialize(3089209, 6)
+		}, [])
+	}
 
 	const [queryClient] = useState(() => new QueryClient())
 
@@ -60,12 +63,16 @@ export default function App(props: AppProps) {
 				<link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png' />
 			</Head>
 
-			<Script
-				src='https://static.cloudflareinsights.com/beacon.min.js'
-				data-cf-beacon='{"token": "ad92d345a44d495692242e92e95166a7"}'
-				strategy='afterInteractive'
-			/>
-			<GoogleAnalytics />
+			{hostTag !== 'DEV_SERVER' && (
+				<>
+					<Script
+						src='https://static.cloudflareinsights.com/beacon.min.js'
+						data-cf-beacon='{"token": "ad92d345a44d495692242e92e95166a7"}'
+						strategy='afterInteractive'
+					/>
+					<GoogleAnalytics />
+				</>
+			)}
 
 			<QueryClientProvider client={queryClient}>
 				<MantineProvider
