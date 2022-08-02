@@ -49,7 +49,7 @@ export default function App(props: AppProps) {
 	const [queryClient] = useState(() => new QueryClient())
 
 	return (
-		<>
+		<div className='mb-16'>
 			<Head>
 				<title>Artur Prets</title>
 				<meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width' />
@@ -83,6 +83,6 @@ export default function App(props: AppProps) {
 					</ModalsProvider>
 				</MantineProvider>
 			</QueryClientProvider>
-		</>
+		</div>
 	)
 }
