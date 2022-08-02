@@ -53,6 +53,9 @@ export default function App(props: AppProps) {
 			<Head>
 				<title>Artur Prets</title>
 				<meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width' />
+				<meta name='description' content='Full-Stack / Cloud / Serverless / DevOps / Software / Networking / Security' />
+				<meta name='keywords' content='aprets,aprets.me,artur prets,prets' />
+				<meta name='robots' content='index,follow' />
 				<link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png' />
 				<link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png' />
 			</Head>
