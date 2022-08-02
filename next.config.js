@@ -8,4 +8,9 @@ module.exports = withBundleAnalyzer({
 	eslint: {
 		ignoreDuringBuilds: true,
 	},
+	experimental: {
+		images: {
+			unoptimized: process.env.HOST === 'CLOUDFLARE_PAGES',
+		},
+	},
 })
