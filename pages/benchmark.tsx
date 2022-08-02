@@ -39,7 +39,7 @@ export default function Benchmark() {
 				<p className='text-sm text-gray-500 mr-1 mt-1'>Descriptions by <a className='text-inherit' href='https://web.dev'>web.dev</a></p>
 			</div>
 			<h2 className='text-xl font-semibold mt-8 mb-1'>Vercel vs Cloudflare Pages Statistics</h2>
-			<h4 className='text-lg mb-4'>Average TTFB and FCP comparison between the two providers for this website</h4>
+			<h4 className='text-lg mb-4'>Average TTFB and FCP comparison between the two providers for this website.</h4>
 			<div className='flex flex-col md:flex-row bg-gradient-to-bl from-indigo-400 to-indigo-600 p-8 rounded-lg'>
 				{[
 					{

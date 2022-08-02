@@ -12,7 +12,7 @@ import {Project, projects, ProjectTag, projectTags} from 'lib/projectsData'
 
 function ProjectCard({title, brief, description, image, tags, githubLink, onTagClick} : Project & {onTagClick: (tag: ProjectTag) => () => void}) {
 	return (
-		<Card shadow='sm' p='lg' radius='md' withBorder>
+		<Card p='lg' radius='md' withBorder>
 
 			<Card.Section withBorder>
 				<Image
@@ -71,8 +71,8 @@ export default function Home() {
 					<h2 className='text-lg text-gray-700 mb-5'>
 						Human being currently at {' '} <span className='font-semibold'>Home</span>
 					</h2>
-					<p className='text-lg text-gray-600 mb-5'>Help I am under the water! Help I am under the water! Help I am under the water! Help I am under the water! </p>
-					<div className='text-lg text-gray-500'>
+					<p className='text-lg text-gray-600 mb-12'>Help I am under the water! Help I am under the water! Help I am under the water! Help I am under the water! </p>
+					<div className='text-lg text-gray-900'>
 						<p className='mb-3'>
 							<Obfuscate className='text-inherit' email={atob('aGVsbG8td2ViQGFwcmV0cy5tZQ')} />
 						</p>
@@ -94,6 +94,7 @@ export default function Home() {
 				</div>
 			</div>
 			<h1 className='font-bold text-3xl mb-4 text-black'>Projects</h1>
+			<h4 className='text-lg mb-4'>Some of the projects I worked on. You can use the filter below to filter by tech or area.</h4>
 			<MultiSelect
 				value={tagFilter}
 				onChange={(value) => setTagFilter(value as ProjectTag[])}
