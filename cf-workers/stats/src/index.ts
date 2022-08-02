@@ -19,6 +19,12 @@ export interface Env {
 	// MY_BUCKET: R2Bucket;
 }
 
+const corsHeaders = {
+	'Access-Control-Allow-Origin': '*',
+	'Access-Control-Allow-Methods': 'GET,HEAD,POST,OPTIONS',
+	'Access-Control-Max-Age': '86400',
+}
+
 const validHosts = ['CLOUDFLARE_PAGES', 'VERCEL', 'DEV_SERVER'] as const
 
 export default {
@@ -27,6 +33,9 @@ export default {
 		env: Env,
 		ctx: ExecutionContext,
 	): Promise<Response> {
+		if (request.method === 'OPTIONS') {
+			return new Response(null, {headers: corsHeaders})
+		}
 		if (request.method !== 'GET') {
 			return new Response('Method not allowed', {status: 405})
 		}
@@ -39,6 +48,6 @@ export default {
 				fcp: hostData ? hostData.fcp : -1,
 			},
 		}), {})
-		return new Response(JSON.stringify(response))
+		return new Response(JSON.stringify(response), {headers: corsHeaders})
 	},
 }
