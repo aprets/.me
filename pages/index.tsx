@@ -25,9 +25,9 @@ function ProjectCard({title, brief, description, image, tags, githubLink, onTagC
 					alt={title}
 					className='cursor-pointer object-cover'
 					onClick={() => openModal({
-						size: 'xl',
+						size: image.width,
 						title,
-						children: <Image src={image} className='object-fit' alt={title} />,
+						children: <div className='text-center'><Image src={image} className='object-fit' alt={title} /></div>,
 					})}
 				/>
 			</Card.Section>
@@ -102,7 +102,7 @@ export default function Home() {
 				</div>
 			</div>
 			<h1 className='font-bold text-3xl mb-4 text-black'>Projects</h1>
-			<h4 className='text-lg mb-4'>Some of the projects I worked on. You can use the filter below to filter by tech or area.</h4>
+			<h2 className='text-lg mb-4'>Some of the projects I worked on. You can use the filter below to filter by tech or area.</h2>
 			<MultiSelect
 				value={tagFilter}
 				onChange={(value) => setTagFilter(value as ProjectTag[])}
