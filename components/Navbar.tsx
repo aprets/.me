@@ -35,20 +35,16 @@ export default function Navbar({links}: NavbarProps) {
 					<a className='text-inherit no-underline text-primary-900 text-sm' title='Click to learn more'>
 						<span className='inline-block rounded-full bg-primary-100 pl-3'>
 							<span className='font-medium'>Loaded from {humanHostName} {' '}</span>
-							{vitals && (
-								<>
-									<span className='text-xs'>
-										(
-										TTFB: {roundMetric(vitals.ttfb)}<span className='text-[0.65rem]'>ms</span>,
-										FCP: {roundMetric(vitals.fcp)}<span className='text-[0.65rem]'>ms</span>
-										)
-									</span>
-									{' '}
-									<div className='text-lg inline-block font-bold text-white bg-primary-700 rounded-full px-[0.6rem] py-[0.0rem]'>
-										?
-									</div>
-								</>
-							)}
+							<span className='text-xs'>
+								(
+								TTFB: {vitals ? roundMetric(vitals.ttfb) : '000'}<span className='text-[0.65rem]'>ms</span>,
+								FCP: {vitals ? roundMetric(vitals.fcp) : '0000'}<span className='text-[0.65rem]'>ms</span>
+								)
+							</span>
+							{' '}
+							<div className='text-lg inline-block font-bold text-white bg-primary-700 rounded-full px-[0.6rem] py-[0.0rem]'>
+								?
+							</div>
 						</span>
 					</a>
 				</Link>
