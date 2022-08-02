@@ -1,6 +1,8 @@
 import {useEffect, useState} from 'react'
+import {useQuery} from '@tanstack/react-query'
 
 const beaconUrl = 'https://loads.aprets.workers.dev'
+const statsUrl = 'https://stats.aprets.workers.dev'
 
 export const hostTag = process.env.NEXT_PUBLIC_HOST ?? 'DEV_SERVER'
 
@@ -53,3 +55,15 @@ export const useWebVitals = () => {
 	}, [])
 	return stateMetrics
 }
+
+interface HostStat {
+	ttfb: number,
+	fcp: number,
+}
+
+interface HostStats {
+	VERCEL: HostStat,
+	CLOUDFLARE_PAGES: HostStat,
+}
+
+export const useStats = () => useQuery<HostStats>(['stats'], async () => fetch(statsUrl).then((r) => r.json())).data
