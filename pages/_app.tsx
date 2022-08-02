@@ -15,6 +15,7 @@ import Navbar from 'components/Navbar'
 import {GoogleAnalytics} from 'components/GoogleAnalytics'
 import {setMetrics} from 'lib/hostBenchmark'
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
+import LogRocket from 'logrocket'
 
 let gotBenchmarkVitals = false
 let fcp: number | undefined
@@ -41,6 +42,7 @@ export default function App(props: AppProps) {
 	const {Component, pageProps} = props
 
 	useEffect(() => {
+		LogRocket.init('d3kwes/apretsme')
 		hotjar.initialize(3089209, 6)
 	}, [])
 
