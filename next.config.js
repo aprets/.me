@@ -10,7 +10,7 @@ module.exports = withBundleAnalyzer({
 	},
 	experimental: {
 		images: {
-			unoptimized: process.env.HOST === 'CLOUDFLARE_PAGES',
+			unoptimized: process.env.NEXT_PUBLIC_HOST === 'CLOUDFLARE_PAGES',
 		},
 	},
 })
