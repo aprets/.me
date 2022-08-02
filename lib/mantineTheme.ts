@@ -167,6 +167,5 @@ declare module '@mantine/core' {
 
 export const theme: MantineThemeOverride = {
 	primaryColor: 'purple',
-	primaryShade: 5,
 	colors: mantineTailwindColors,
 }
