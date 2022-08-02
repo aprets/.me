@@ -1,4 +1,8 @@
 import React from 'react'
+import {StaticImageData} from 'next/image'
+
+import vmoteImg from 'public/vmote.png'
+import clearpathImg from 'public/clearpath.png'
 
 export const projectTags = [
 	'JavaScript',
@@ -26,7 +30,7 @@ export type Project = {
 	title: string,
 	brief: string,
 	description: React.ReactNode,
-	image: string,
+	image: StaticImageData,
 	githubLink: string,
 	tags: ProjectTag[],
 }
@@ -45,7 +49,7 @@ export const projects: Project[] = [
 				accessed using remote control software like Parsec, RDP etc.
 			</>
 		),
-		image: '/vmote.png',
+		image: vmoteImg,
 		githubLink: 'https://github.com/aprets/vmote',
 		tags: ['JavaScript', 'TypeScript', 'React', 'Next', 'Socket.IO', 'WebSocket', 'Docker', 'GitHub Actions', 'Mantine', 'PowerShell'],
 	},
@@ -62,7 +66,7 @@ export const projects: Project[] = [
 				engineers with limited cloud experience.
 			</>
 		),
-		image: '/clearpath.png',
+		image: clearpathImg,
 		githubLink: 'https://github.com/aprets/clearpath',
 		tags: ['JavaScript', 'TypeScript', 'React', 'Next', 'Google Cloud', 'Docker', 'Terraform', 'Firebase', 'GitHub Actions', 'Mantine'],
 	},

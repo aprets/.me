@@ -1,8 +1,11 @@
-/* eslint-disable @next/next/no-img-element */
 import {useState} from 'react'
 
+import Image from 'next/image'
+
+import pfpBlob from 'public/pfp-blob.svg'
+
 import Obfuscate from 'react-obfuscate'
-import {Button, Text, Container, Group, Center, Loader, Paper, Badge, Image, Card, ActionIcon, MultiSelect, Skeleton} from '@mantine/core'
+import {Button, Text, Container, Group, Center, Loader, Paper, Badge, Card, ActionIcon, MultiSelect, Skeleton, Image as MI} from '@mantine/core'
 import {FaGithub} from 'react-icons/fa'
 
 import {openModal} from '@mantine/modals'
@@ -14,16 +17,17 @@ function ProjectCard({title, brief, description, image, tags, githubLink, onTagC
 	return (
 		<Card p='lg' radius='md' withBorder>
 
-			<Card.Section withBorder>
+			<Card.Section withBorder className='relative h-64'>
 				<Image
 					src={image}
 					height={256}
+					layout='fill'
 					alt={title}
-					className='cursor-pointer'
+					className='cursor-pointer object-cover'
 					onClick={() => openModal({
 						size: 'xl',
 						title,
-						children: <Image src={image} alt={title} />,
+						children: <Image src={image} className='object-fit' alt={title} />,
 					})}
 				/>
 			</Card.Section>
@@ -70,7 +74,6 @@ export default function Home() {
 					<h1 className='font-bold text-3xl md:text-5xl tracking-tight mb-2 mt-8 text-black'>Artur Prets</h1>
 					<h2 className='text-lg text-gray-700'>
 						Full-Stack / Cloud / Serverless / DevOps / Software / Networking / Security
-						{/* Software Engineer<span className='font-semibold'>Home</span> */}
 					</h2>
 					<p className='text-lg mt-6 mb-12'>Passionate about web, cloud, software and tech in general.<br />See below for my links, contact details and projects.</p>
 					<div className='text-lg'>
@@ -86,9 +89,13 @@ export default function Home() {
 					</div>
 				</div>
 				<div className='flex justify-center'>
-					<img
-						src='/pfp-blob.svg'
-						className='w-96 h-auto'
+					<Image
+						src={pfpBlob}
+						width={384}
+						height={364}
+						unoptimized
+						layout='fixed'
+						// className='w-96 h-auto'
 						alt='Profile'
 						title='I am under the water. Please help me.'
 					/>
