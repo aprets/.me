@@ -1,4 +1,4 @@
-import {useEffect} from 'react'
+import {useEffect, useState} from 'react'
 import {AppProps, NextWebVitalsMetric} from 'next/app'
 import Head from 'next/head'
 import Script from 'next/script'
@@ -14,6 +14,7 @@ import {theme} from 'lib/mantineTheme'
 import Navbar from 'components/Navbar'
 import {GoogleAnalytics} from 'components/GoogleAnalytics'
 import {setMetrics} from 'lib/hostBenchmark'
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
 
 let gotBenchmarkVitals = false
 let fcp: number | undefined
@@ -43,6 +44,8 @@ export default function App(props: AppProps) {
 		hotjar.initialize(3089209, 6)
 	}, [])
 
+	const [queryClient] = useState(() => new QueryClient())
+
 	return (
 		<>
 			<Head>
@@ -59,23 +62,25 @@ export default function App(props: AppProps) {
 			/>
 			<GoogleAnalytics />
 
-			<MantineProvider
-				withGlobalStyles
-				withNormalizeCSS
-				theme={theme}
-			>
-				<ModalsProvider>
-					<Container size='xl'>
-						<Navbar links={[
-							{label: 'Home', url: '/'},
-							{label: 'About', url: '/about'},
-							{label: 'Benchmark', url: '/benchmark'},
-						]}
-						/>
-						<Component {...pageProps} />
-					</Container>
-				</ModalsProvider>
-			</MantineProvider>
+			<QueryClientProvider client={queryClient}>
+				<MantineProvider
+					withGlobalStyles
+					withNormalizeCSS
+					theme={theme}
+				>
+					<ModalsProvider>
+						<Container size='xl'>
+							<Navbar links={[
+								{label: 'Home', url: '/'},
+								{label: 'About', url: '/about'},
+								{label: 'Benchmark', url: '/benchmark'},
+							]}
+							/>
+							<Component {...pageProps} />
+						</Container>
+					</ModalsProvider>
+				</MantineProvider>
+			</QueryClientProvider>
 		</>
 	)
 }
