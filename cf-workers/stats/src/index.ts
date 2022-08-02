@@ -25,7 +25,7 @@ const corsHeaders = {
 	'Access-Control-Max-Age': '86400',
 }
 
-const validHosts = ['CLOUDFLARE_PAGES', 'VERCEL', 'DEV_SERVER'] as const
+const validHosts = ['CLOUDFLARE_PAGES', 'VERCEL'] as const
 
 export default {
 	async fetch(
