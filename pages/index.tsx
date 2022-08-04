@@ -31,7 +31,7 @@ function ProjectCard({title, brief, description, image, tags, githubLink, onTagC
 				/>
 			</Card.Section>
 
-			<Group position='apart' mt='md'>
+			<Group position='apart' mt='md' mb='sm'>
 				<Text size='lg' weight={500}>{title}</Text>
 				{githubLink ? (
 					<ActionIcon size='lg' radius='md' variant='default' component='a' href={githubLink} aria-label='Github'>
