@@ -13,18 +13,23 @@ import chattyChefImg from 'public/chatty-chef.png'
 import bainImg from 'public/bain.png'
 import mideaImg from 'public/midea.png'
 import pmsImg from 'public/pms.png'
+import webzImg from 'public/webz.png'
 
 export const techTags = [
 	'JavaScript',
 	'TypeScript',
 	'Python',
 	'React',
+	'Vue',
 	'Next',
+	'Vite',
+	'Flask',
 	'MongoDB',
 	'Firebase',
 	'GitHub Actions',
 	'Docker',
 	'Google Cloud',
+	'AWS',
 	'Terraform',
 	'Contentful',
 	'Tailwind CSS',
@@ -39,6 +44,7 @@ export const techTags = [
 	'Jamstack',
 	'Stripe',
 	'TrueLayer',
+	'PHP',
 ] as const
 
 export const areaTags = [
@@ -81,7 +87,7 @@ export const projects: Project[] = [
 		),
 		image: vmoteImg,
 		githubLink: 'https://github.com/aprets/vmote',
-		tags: ['JavaScript', 'TypeScript', 'React', 'Next', 'Socket.IO', 'WebSocket', 'Docker', 'GitHub Actions', 'Mantine', 'PowerShell'],
+		tags: ['JavaScript', 'TypeScript', 'React', 'Vite', 'Socket.IO', 'WebSocket', 'Docker', 'GitHub Actions', 'Mantine', 'PowerShell'],
 	},
 	{
 		title: 'ClearPath',
@@ -159,13 +165,13 @@ export const projects: Project[] = [
 				Docker and <a href='https://www.rancher.com/' className='text-inherit'>Rancher</a> were used to manage containers once the host VM or server were set up.
 				The project also included a small ODM with connectors for <a href='https://www.mongodb.com/' className='text-inherit'>MongoDB</a> {' '}
 				and <a href='https://cloud.google.com/datastore/' className='text-inherit'>GCP Datastore</a> as well as a custom JSON validation layer.
-				Most of the functionality is now part
+				Most of the functionality is nowadays part
 				of <a href='https://www.digitalocean.com/community/tutorials/how-to-set-up-multi-node-deployments-with-rancher-2-1-kubernetes-and-docker-machine-on-ubuntu-18-04' className='text-inherit'>the core Rancher project.</a>
 			</>
 		),
 		image: infraryImg,
 		githubLink: 'https://github.com/aprets/infrary',
-		tags: ['JavaScript', 'TypeScript', 'GitHub Actions'],
+		tags: ['Python', 'Docker', 'JavaScript', 'Vue', 'Flask'],
 	},
 	{
 		title: 'Chatty Chef',
@@ -208,6 +214,24 @@ export const projects: Project[] = [
 		image: mideaImg,
 		githubLink: 'https://github.com/aprets/midea-ac-lib',
 		tags: ['Python', 'Reverse Engineering', 'Networking'],
+	},
+	{
+		title: 'Webz VPN',
+		brief: 'A VPN business I ran while in High School',
+		description: (
+			<>
+				A profitable VPN service fully developed and managed by me which had multiple UK servers and over 100 customers.
+				Operations were halted due to the business taking too much of my personal time while in University.
+				Set up the server and cloud infrastructure for a VPN service to function.
+				Designed Docker micro-services for the service.
+				Developed and deployed custom OpenVPN based software for clients to connect to the service.
+				Installed and managed a billing solution to receive payments from customers. Provided customer support to users of the service.
+
+			</>
+		),
+		image: webzImg,
+		githubLink: 'https://github.com/webzvpn',
+		tags: ['Docker', 'Google Cloud', 'Google Cloud', 'AWS', 'PHP', 'Shell Script'],
 	},
 	{
 		title: 'Property Management System',
