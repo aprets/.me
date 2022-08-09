@@ -2,9 +2,6 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-	corePlugins: {
-		preflight: true,
-	},
 	important: '#__next',
 	content: [
 		'./pages/**/*.{js,ts,jsx,tsx}',
@@ -14,6 +11,7 @@ module.exports = {
 		extend: {
 			colors: {
 				primary: colors.purple,
+				secondary: colors.indigo,
 			},
 			fontFamily: {
 				sans: [
