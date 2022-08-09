@@ -156,7 +156,7 @@ export default function Home() {
 				value={filterMode}
 				onChange={(value) => setFilterMode(value as typeof filterMode)}
 			>
-				<Radio value='OR' label='Show projects including any of the tags (OR)' />
+				<Radio value='OR' label='Show projects including any of the selected tags (OR)' />
 				<Radio value='AND' label='Show only the projects that include all selected tags (AND)' />
 			</Radio.Group>
 
