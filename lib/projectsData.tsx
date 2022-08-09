@@ -15,60 +15,94 @@ import mideaImg from 'public/midea.png'
 import pmsImg from 'public/pms.png'
 import webzImg from 'public/webz.png'
 
-export const techTags = [
-	'JavaScript',
-	'TypeScript',
-	'Python',
-	'React',
-	'Vue',
-	'Next',
-	'Vite',
-	'Flask',
-	'MongoDB',
-	'Firebase',
-	'GitHub Actions',
-	'Docker',
-	'Google Cloud',
-	'AWS',
-	'Terraform',
-	'Contentful',
-	'Tailwind CSS',
-	'Cloudflare Workers',
-	'Socket.IO',
-	'WebSocket',
-	'Chakra UI',
-	'Mantine',
-	'HyperV',
-	'PowerShell',
-	'Shell Script',
-	'Jamstack',
-	'Stripe',
-	'TrueLayer',
-	'PHP',
-] as const
+export const tagAreas = {
+	'Software Engineering': [
+		'TypeScript',
+		'JavaScript',
+		'Python',
+		'Ruby',
+		'Java',
+		'PHP',
+		'Delphi',
+		'VB.NET',
+		'Go',
+		'Node.js',
+		'Blob Storage',
+		'SQL',
+		'Cosmos DB',
+		'MongoDB',
+		'Firebase',
+		'Cloudflare Workers KV',
+		'Google Datastore',
+		'HyperV',
+		'PowerShell',
+		'Shell Script',
+		'AI',
+		'NLP',
+	],
+	Web: [
+		'Express',
+		'Flask',
+		'React',
+		'Vue',
+		'Next',
+		'Vite',
+		'Jamstack',
+		'Contentful',
+		'Kontent',
+		'Tailwind CSS',
+		'Mantine',
+		'Ant Design',
+		'Chakra UI',
+		'tRPC',
+		'Stripe',
+		'TrueLayer',
+		'Realtime',
+		'Socket.IO/WebSockets',
+	],
+	'Cloud / DevOps': [
+		'Google Cloud',
+		'Microsoft Azure',
+		'AWS',
+		'Containers',
+		'Cloud Functions',
+		'VMs',
+		'Cloudflare Workers',
+		'Docker',
+		'KVM',
+		'VMWare',
+		'Terraform',
+		'GitHub Actions',
+		'Azure DevOps',
+		'Linux',
+		'Networking',
+		'VPN',
+		'Server Management',
 
-export const areaTags = [
-	'Linux',
-	'Reverse Engineering',
-	'Networking',
-	'AI',
-	'NLP',
-] as const
+	],
+	InfoSec: [
+		'Reverse Engineering',
+		'Kali Linux',
+		'Wireshark',
+		'mitmproxy',
+		'Cobalt Strike',
+		'WiFi Pineapple',
+		'USB Rubber Ducky',
+		'EXE Reversing',
+	],
+} as const
 
-export const projectTags = [
-	...techTags,
-	...areaTags,
-] as const
+export const allTags = [...Object.keys(tagAreas) as (keyof typeof tagAreas)[], ...Object.values(tagAreas).flat()] as const
 
-export type ProjectTag = typeof projectTags[number]
+export type Tag = typeof allTags[number]
 
 export type Project = {
 	title: string,
 	brief: string,
 	description: ReactNode,
-	image: StaticImageData,
+	image?: StaticImageData,
 	githubLink?: string,
-	tags: ProjectTag[],
+	tags: Tag[],
 }
 
 export const projects: Project[] = [
@@ -87,7 +121,7 @@ export const projects: Project[] = [
 		),
 		image: vmoteImg,
 		githubLink: 'https://github.com/aprets/vmote',
-		tags: ['JavaScript', 'TypeScript', 'React', 'Vite', 'Socket.IO', 'WebSocket', 'Docker', 'GitHub Actions', 'Mantine', 'PowerShell'],
+		tags: ['JavaScript', 'TypeScript', 'Node.js', 'Express', 'React', 'Vite', 'Realtime', 'Socket.IO/WebSockets', 'Docker', 'GitHub Actions', 'Mantine', 'PowerShell', 'Networking', 'Server Management', 'Software Engineering', 'Web'],
 	},
 	{
 		title: 'ClearPath',
@@ -104,7 +138,7 @@ export const projects: Project[] = [
 		),
 		image: clearpathImg,
 		githubLink: 'https://github.com/aprets/clearpath',
-		tags: ['JavaScript', 'TypeScript', 'React', 'Next', 'Google Cloud', 'Docker', 'Terraform', 'Firebase', 'GitHub Actions', 'Mantine'],
+		tags: ['JavaScript', 'TypeScript', 'Node.js', 'React', 'Next', 'Google Cloud', 'Containers', 'VMs', 'SQL', 'Docker', 'Terraform', 'Realtime', 'Firebase', 'GitHub Actions', 'Mantine', 'Software Engineering', 'Web', 'Cloud / DevOps'],
 	},
 	{
 		title: 'Ubiquiti Cloudflared',
@@ -122,7 +156,7 @@ export const projects: Project[] = [
 		),
 		image: ubntImg,
 		githubLink: 'https://github.com/aprets/ubnt-cloudflared',
-		tags: ['Linux', 'Shell Script', 'Reverse Engineering', 'Networking'],
+		tags: ['Linux', 'Shell Script', 'Reverse Engineering', 'Networking', 'Server Management', 'InfoSec'],
 	},
 	{
 		title: 'aprets.me',
@@ -138,7 +172,7 @@ export const projects: Project[] = [
 		),
 		image: apretsImg,
 		githubLink: 'https://github.com/aprets/.me',
-		tags: ['JavaScript', 'TypeScript', 'React', 'Next', 'Tailwind CSS', 'Mantine', 'Cloudflare Workers'],
+		tags: ['JavaScript', 'TypeScript', 'React', 'Next', 'Jamstack', 'Tailwind CSS', 'Mantine', 'Cloud Functions', 'Cloudflare Workers', 'Cloudflare Workers KV', 'Software Engineering', 'Web'],
 	},
 	{
 		title: 'Conventional Commits GitHub Action',
@@ -153,7 +187,7 @@ export const projects: Project[] = [
 		),
 		image: ccImg,
 		githubLink: 'https://github.com/aprets/action-conventional-commits',
-		tags: ['JavaScript', 'TypeScript', 'GitHub Actions'],
+		tags: ['JavaScript', 'TypeScript', 'GitHub Actions', 'Software Engineering', 'Cloud / DevOps'],
 	},
 	{
 		title: 'Infrary',
@@ -171,7 +205,7 @@ export const projects: Project[] = [
 		),
 		image: infraryImg,
 		githubLink: 'https://github.com/aprets/infrary',
-		tags: ['Python', 'Docker', 'JavaScript', 'Vue', 'Flask'],
+		tags: ['Python', 'Docker', 'JavaScript', 'Vue', 'Flask', 'MongoDB', 'Google Datastore', 'Shell Script', 'Server Management', 'Linux', 'Jamstack', 'Google Cloud', 'Containers', 'Software Engineering', 'Web', 'Cloud / DevOps', 'InfoSec'],
 	},
 	{
 		title: 'Chatty Chef',
@@ -185,7 +219,7 @@ export const projects: Project[] = [
 		),
 		image: chattyChefImg,
 		githubLink: 'https://github.com/aprets/Chatty-Chef',
-		tags: ['JavaScript', 'TypeScript', 'React', 'Next', 'Contentful', 'Jamstack', 'Python', 'Google Cloud', 'Firebase', 'Stripe', 'Mantine', 'Docker', 'GitHub Actions', 'AI', 'NLP'],
+		tags: ['JavaScript', 'TypeScript', 'Node.js', 'React', 'Next', 'Contentful', 'Jamstack', 'Python', 'Google Cloud', 'Containers', 'Cloud Functions', 'Firebase', 'Realtime', 'Stripe', 'Mantine', 'Docker', 'GitHub Actions', 'AI', 'NLP', 'Software Engineering', 'Web', 'Cloud / DevOps'],
 	},
 	{
 		title: 'Grocery NLP Chatbot',
@@ -199,21 +233,21 @@ export const projects: Project[] = [
 		),
 		image: bainImg,
 		githubLink: 'https://github.com/aprets/Grocery-AI-Chatbot',
-		tags: ['Python', 'Google Cloud', 'Docker', 'GitHub Actions', 'AI', 'NLP'],
+		tags: ['Python', 'Flask', 'Google Cloud', 'Containers', 'Docker', 'GitHub Actions', 'AI', 'NLP', 'Software Engineering', 'Cloud / DevOps'],
 	},
 	{
 		title: 'Library for controlling Midea AC',
 		brief: 'Fixed and refactored library for controlling Midea AC over the internet',
 		description: (
 			<>
-				Refactored and update multiple upstream libraries to support new cloud communications protocol
+				Refactored and updated multiple upstream libraries to support new cloud communications protocol
 				and correctly interact with new AC models. Figured out the correct implementation via reverse
 				engineering original apps, ir remote codes and based on existing libraries.
 			</>
 		),
 		image: mideaImg,
 		githubLink: 'https://github.com/aprets/midea-ac-lib',
-		tags: ['Python', 'Reverse Engineering', 'Networking'],
+		tags: ['Python', 'Kali Linux', 'Wireshark', 'mitmproxy', 'WiFi Pineapple', 'Reverse Engineering', 'Networking', 'Software Engineering', 'InfoSec'],
 	},
 	{
 		title: 'Webz VPN',
@@ -226,12 +260,126 @@ export const projects: Project[] = [
 				Designed Docker micro-services for the service.
 				Developed and deployed custom OpenVPN based software for clients to connect to the service.
 				Installed and managed a billing solution to receive payments from customers. Provided customer support to users of the service.
-
 			</>
 		),
 		image: webzImg,
 		githubLink: 'https://github.com/webzvpn',
-		tags: ['Docker', 'Google Cloud', 'Google Cloud', 'AWS', 'PHP', 'Shell Script'],
+		tags: ['PHP', 'VB.NET', 'Docker', 'SQL', 'Google Cloud', 'AWS', 'VMs', 'Containers', 'KVM', 'VMWare', 'Linux', 'Networking', 'VPN', 'Server Management', 'Kali Linux', 'Wireshark', 'mitmproxy', 'Cobalt Strike', 'Shell Script', 'Software Engineering', 'Web', 'Cloud / DevOps', 'InfoSec'],
+	},
+	{
+		title: 'Infrastructure Management Automation at Elanco',
+		brief: 'Turned 2 week long processes into a 5 minute automation',
+		description: (
+			<>
+				Lead a small team in automating Elanco&apos;s infrastructure management process.
+				Turned multiple manual infrastructure requests that took 2 weeks to complete into an automation which required
+				no cloud platform knowledge and took 5 minutes to run. Used Infrastructure-as-code, Node.js, Terraform and deeply
+				integrated with GitHub, GitHub Actions and Azure DevOps APIs to simplify infrastructure management. Successfully
+				presented the solution to the company&apos;s CTO leading to the tool&apos;s use as a basis for automation work both internally
+				and on external vendor projects.
+			</>
+		),
+		tags: ['JavaScript', 'TypeScript', 'Node.js', 'Express', 'Terraform', 'Microsoft Azure', 'Google Cloud', 'Containers', 'Cloud Functions', 'Azure DevOps', 'GitHub Actions', 'Networking', 'Software Engineering', 'Web', 'Cloud / DevOps'],
+	},
+	{
+		title: 'Next Generation Website Toolkit at Elanco',
+		brief: 'Overhauled website development and management experience',
+		description: (
+			<>
+				Co-designed and developed a next-generation toolkit for website development and management at Elanco.
+				Tightly integrated TypeScript, React, Next.js with Kentico Konent Headless CMS to produce an intuitive visual
+				“What You See Is What You Get” website building and editing experience which was drastically more flexible and capable.
+				The new solution significantly reduced time to market and brought order of magnitude cost savings.
+				Worked with users and stakeholders to collect feedback and enhance the solution.
+				The project received C-Level sponsorship, runs over 100 webpages and is used in onboarding of 100+ site rebuilds as part of Bayer acquisition.
+			</>
+		),
+		tags: ['JavaScript', 'TypeScript', 'Node.js', 'Next', 'React', 'Tailwind CSS', 'Kontent', 'Jamstack', 'Microsoft Azure', 'Blob Storage', 'Azure DevOps', 'GitHub Actions', 'Software Engineering', 'Web'],
+	},
+	{
+		title: 'Google Cloud Migration at Elanco',
+		brief: 'Explored, analysed and evaluated the platform to improve operations',
+		description: (
+			<>
+				Worked with Google Cloud representatives during Google Cloud migration to analyse and evaluate cloud services new to the company,
+				design and redefine architectures compatible with existing processes. Used Infrastructure-as-Code and Terraform to explore and
+				implement designed architectures in practice evaluating real-world performance and limitations. Heavily pushed for use of innovative
+				services such as Cloud Run resulting in better performance and orders of magnitude cost savings.
+			</>
+		),
+		tags: ['Terraform', 'SQL', 'Firebase', 'MongoDB', 'Google Cloud', 'Microsoft Azure', 'Containers', 'Docker', 'Networking', 'Linux', 'Software Engineering', 'Web', 'Cloud / DevOps'],
+	},
+	{
+		title: 'App & Infrastructure Process Optimisation at Elanco',
+		brief: 'Helped improve and digitise internal processes',
+		description: (
+			<>
+				Worked with stakeholders to further streamline and automate Elanco&apos;s infrastructure and application processes.
+				Developed an internal Express.js REST API offering unified visibility into existing and future applications,
+				their characteristics and performance.Additionally developed a powerful React and Tailwind CSS based web interface to query the API.
+				This provided rich reports on applications individually, in groups, by technologies / software stack / internal organisational units etc.
+				Further extended and iterated on the project for it to take over part of the application approval and deployment process entirely.
+			</>
+		),
+		tags: ['JavaScript', 'TypeScript', 'Node.js', 'Express', 'React', 'Ant Design', 'Tailwind CSS', 'Microsoft Azure', 'Cloud Functions', 'Cosmos DB', 'MongoDB', 'Blob Storage', 'Azure DevOps', 'GitHub Actions', 'Software Engineering', 'Web'],
+	},
+	{
+		title: 'Quality & Security Testing Framework at Elanco',
+		brief: 'Improved and unified software quality and security testing',
+		description: (
+			<>
+				Designed and developed a Software Quality and Security Testing Framework for the DevOps team. Replaced multiple
+				fragmented CI pipelines with a powerful and easy-to-use unified Python powered solution. Automatically identified
+				and classified different parts of the codebase to run a maximally comprehensive suite of quality and security tests.
+				Deeply integrated with Azure DevOps (API) to collect data and utilise its UI to display results, hints and suggestions
+				as well as allow for project configuration. Provided more powerful scanning and testing capabilities and improved user
+				experience by directly highlighting code snippets in question in Azure DevOps UI and providing comprehensive guidance on
+				resolving issues. Final solution only required one line of code to use.
+			</>
+		),
+		tags: ['Python', 'Microsoft Azure', 'Azure DevOps', 'Software Engineering', 'Cloud / DevOps', 'InfoSec'],
+	},
+	{
+		title: 'DevOps & Automation Dashboard at Elanco',
+		brief: 'Converted complex log-like data to a powerful & intuitive dashboard',
+		description: (
+			<>
+				Designed and developed a dashboard UI for the internal Automation / DevOps framework. Used Express, React.js, Tailwind
+				to convert difficult to trace and navigate log-like data to a user-friendly interactive Web UI. The dashboard presented
+				a holistic overview of past and current automation runs and vastly improved UX by intelligently analysing job and task
+				status and results to surface any issues to the user. Allowed for intuitive interactive traversal and search down the
+				automation hierarchy to simplify troubleshooting.
+			</>
+		),
+		tags: ['JavaScript', 'TypeScript', 'Node.js', 'Express', 'React', 'Tailwind CSS', 'Microsoft Azure', 'Azure DevOps', 'Cosmos DB', 'MongoDB', 'VPN', 'Software Engineering', 'Web'],
+	},
+	{
+		title: 'Recruitment & Student Support at Elanco',
+		brief: 'Helped technically asses candidates & mentored university students',
+		description: (
+			<>
+				Took part in the recruitment process for Software Engineering and IT roles. Designed and assessed technical interviews
+				and helped with interviewing applicants and evaluating their performance. Participated in two “Client Projects” with
+				Sheffield Hallam University where students worked on projects with Elanco as a client. Attended multiple meetings as an
+				engineer from Elanco&apos;s side to work with the students to convert requirements to more detailed designs and then solutions.
+				Assisted with implementation details to meet Elanco&apos;s standards. This included mentoring different students and groups
+				in multiple engagements with Sheffield Hallam University.
+			</>
+		),
+		tags: ['JavaScript', 'Python', 'Node.js', 'Express', 'React', 'Microsoft Azure', 'AI', 'Software Engineering', 'Web', 'Cloud / DevOps', 'InfoSec'],
+	},
+	{
+		title: 'IT at Prets Industriepark',
+		brief: 'Office IT',
+		description: (
+			<>
+				Designed, implemented and managed all office IT infrastructure. Installed HPE/Dell servers (including OS installation and management).
+				Designed and managed LAN and WLAN networks with Ubiquiti Hardware (Routers, Switches, Access Points). Set up and managed
+				a VMware vSphere including all the underlying software and hardware. Monitored IT Infrastructure and networks to maintain availability.
+				Troubleshooted IT infrastructure as well as office hardware and software (PCs, Mobile Phones, Laptops).
+			</>
+		),
+		tags: ['AWS', 'Containers', 'Docker', 'VMs', 'KVM', 'VMWare', 'Linux', 'Networking', 'VPN', 'Server Management', 'Kali Linux', 'mitmproxy', 'Cobalt Strike', 'WiFi Pineapple', 'USB Rubber Ducky', 'SQL', 'Shell Script', 'PowerShell', 'Cloud / DevOps', 'InfoSec'],
 	},
 	{
 		title: 'Property Management System',
@@ -244,6 +392,6 @@ export const projects: Project[] = [
 			</>
 		),
 		image: pmsImg,
-		tags: ['JavaScript', 'TypeScript', 'React', 'Next', 'Chakra UI', 'Google Cloud', 'Firebase', 'TrueLayer'],
+		tags: ['JavaScript', 'TypeScript', 'React', 'Next', 'Chakra UI', 'Python', 'Flask', 'Google Cloud', 'Cloud Functions', 'Firebase', 'Google Datastore', 'GitHub Actions', 'TrueLayer', 'AI', 'NLP', 'Software Engineering', 'Web', 'Cloud / DevOps'],
 	},
 ]

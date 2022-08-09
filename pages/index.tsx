@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {Fragment, useState} from 'react'
 
 import Image from 'next/image'
 
@@ -11,50 +11,59 @@ import {FaGithub} from 'react-icons/fa'
 import {openModal} from '@mantine/modals'
 import {useAutoAnimate} from '@formkit/auto-animate/react'
 
-import {Project, projects, ProjectTag, projectTags} from 'lib/projectsData'
+import {allTags, Project, projects, Tag, tagAreas} from 'lib/projectsData'
 
-function ProjectCard({title, brief, description, image, tags, githubLink, onTagClick} : Project & {onTagClick: (tag: ProjectTag) => () => void}) {
+function ProjectCard(
+	{title, brief, description, image, tags, githubLink, onTagClick, filter} : Project & {onTagClick: (tag: Tag) => () => void, filter: Tag[]},
+) {
 	return (
 		<Card p='lg' radius='md' withBorder>
 
-			<Card.Section withBorder className='relative h-64'>
-				<Image
-					src={image}
-					layout='fill'
-					alt={title}
-					className='cursor-pointer object-cover'
-					onClick={() => openModal({
-						size: image.width,
-						title,
-						children: <div className='text-center'><Image src={image} className='object-fit' alt={title} /></div>,
-					})}
-				/>
-			</Card.Section>
+			{image && (
+				<Card.Section withBorder className='relative h-64' mb='md'>
+					<Image
+						src={image}
+						layout='fill'
+						alt={title}
+						className='cursor-pointer object-cover'
+						onClick={() => openModal({
+							size: image.width,
+							title,
+							children: <div className='text-center'><Image src={image} className='object-fit' alt={title} /></div>,
+						})}
+					/>
+				</Card.Section>
+			)}
 
-			<Group position='apart' mt='md' mb='sm'>
+			<Group position='apart' mb='xs'>
 				<Text size='lg' weight={500}>{title}</Text>
 				{githubLink ? (
 					<ActionIcon size='lg' radius='md' variant='default' component='a' href={githubLink} aria-label='Github'>
 						<FaGithub size='70%' />
 					</ActionIcon>
 				) : (
-					<Badge color='dark' variant='dot'>
+					<Badge color='dark' variant='outline' radius='md'>
 						proprietary
 					</Badge>
 				)}
 			</Group>
-			<Group position='left' spacing='xs' mt={4}>
+			<div className='flex flex-row flex-wrap gap-[0.4rem]'>
 				{tags.map((tag) => (
-					<Badge key={tag} className='cursor-pointer' color='primary' variant='outline' onClick={onTagClick(tag)}>
+					<button
+						key={tag}
+						type='button'
+						className={`border-none rounded-full cursor-pointer ${filter.includes(tag) ? 'bg-primary-100 text-primary-700' : 'bg-neutral-100 text-gray-800'} hover:bg-primary-100 text-sm line font-medium px-[0.4rem] py-[0.1rem] active:translate-y-[1px]`}
+						onClick={onTagClick(tag)}
+					>
 						{tag}
-					</Badge>
+					</button>
 				))}
-			</Group>
+			</div>
 			<p className='text-gray-800 font-medium mt-3 mb-2'>
 				{brief}
 			</p>
 
-			<p className='text-gray-700'>
+			<p className='text-gray-800'>
 				{description}
 			</p>
 
@@ -63,15 +72,16 @@ function ProjectCard({title, brief, description, image, tags, githubLink, onTagC
 }
 
 export default function Home() {
-	const [tagFilter, setTagFilter] = useState<ProjectTag[]>([])
+	const [filter, setFilter] = useState<Tag[]>([])
 	const filteredProjects = projects.filter(
 		// Only show projects which have all the tags in the filter
 		// aka ensure no project does not include one of the tags in the filter
-		(p) => !tagFilter.some(
+		(p) => !filter.some(
 			(t) => !p.tags.includes(t),
 		),
 	)
 	const [animatedParent] = useAutoAnimate<HTMLDivElement>()
+	const toggleTag = (tag: Tag) => () => { setFilter((c) => (c.includes(tag) ? c.filter((t) => t !== tag) : [...c, tag])) }
 	return (
 		<main>
 			<div className='flex flex-col-reverse md:flex-row justify-between mb-24'>
@@ -81,17 +91,15 @@ export default function Home() {
 						Full-Stack / Cloud / Serverless / DevOps / Software / Networking / Security
 					</h2>
 					<p className='text-lg mt-6 mb-12'>Passionate about web, cloud, software and tech in general.<br />See below for my links, contact details and projects.</p>
-					<div className='text-lg'>
-						<p className='mb-3'>
-							<Obfuscate className='text-inherit' email={atob('aGVsbG8td2ViQGFwcmV0cy5tZQ')} />
-						</p>
-						<p className='mb-3'>
-							<a className='text-inherit' href='https://github.com/aprets'>@aprets on GitHub</a>
-						</p>
-						<p className='mb-3'>
-							<a className='text-inherit' href='https://www.linkedin.com/in/aprets/'>/in/aprets on LinkedIn</a>
-						</p>
-					</div>
+					<p className='mb-3'>
+						<Obfuscate className='text-lg underline decoration-secondary-500 decoration-2' email={atob('aGVsbG8td2ViQGFwcmV0cy5tZQ')} />
+					</p>
+					<p className='mb-3'>
+						<a className='text-lg underline decoration-secondary-500 decoration-2' href='https://github.com/aprets'>@aprets on GitHub</a>
+					</p>
+					<p className='mb-3'>
+						<a className='text-lg underline decoration-secondary-500 decoration-2' href='https://www.linkedin.com/in/aprets/'>/in/aprets on LinkedIn</a>
+					</p>
 				</div>
 				<div className='flex justify-center'>
 					<Image
@@ -106,30 +114,53 @@ export default function Home() {
 					/>
 				</div>
 			</div>
+			<h1 className='font-bold text-3xl mb-4 text-black'>Skills</h1>
+			<h2 className='text-lg mb-2'>Click on a category or skill to add it to the project filter below.</h2>
+			<div className='mb-6'>
+				{Object.entries(tagAreas).map(([area, tags]) => (
+					<div key={area} className='mb-2'>
+						<button
+							type='button'
+							className={`rounded-full cursor-pointer hover:text-primary-600 ${filter.includes(area as Tag) ? 'text-primary-700' : 'text-gray-700'} text-lg font-semibold active:translate-y-[1px] mb-1`}
+							onClick={toggleTag(area as Tag)}
+						>
+							{area}
+						</button>
+						<div className='flex flex-row flex-wrap gap-2'>
+							{tags.map((tag) => (
+								<button
+									key={tag}
+									type='button'
+									className={`border-none rounded-full cursor-pointer ${filter.includes(tag) ? 'bg-primary-100 text-primary-700' : 'bg-neutral-100 text-gray-800'} hover:bg-primary-100 text-sm line font-medium px-2 py-1 active:translate-y-[1px]`}
+									onClick={toggleTag(tag)}
+								>
+									{tag}
+								</button>
+							))}
+						</div>
+					</div>
+				))}
+			</div>
 			<h1 className='font-bold text-3xl mb-4 text-black'>Projects</h1>
 			<h2 className='text-lg mb-4'>Some of the projects I worked on. You can use the filter below to filter by tech or area.</h2>
 			<MultiSelect
-				value={tagFilter}
-				onChange={(value) => setTagFilter(value as ProjectTag[])}
-				data={projectTags.map((tag) => ({label: tag, value: tag}))}
+				classNames={{searchInput: 'leading-none'}}
+				value={filter}
+				onChange={(value) => setFilter(value as Tag[])}
+				data={allTags.map((s) => ({label: s, value: s}))}
 				label='Filter'
 				placeholder='Pick tags to include'
 				clearable
 				searchable
 			/>
-			<div className='grid grid-cols-1 md:grid-cols-2 gap-8 mt-8' ref={animatedParent}>
+			<div className='grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 leading' ref={animatedParent}>
 				{
 					filteredProjects.map((project) => (
 						<ProjectCard
 							key={project.title}
 							{...project}
-							onTagClick={
-								(tag) => () => {
-									if (!tagFilter.includes(tag)) {
-										setTagFilter([...tagFilter, tag])
-									}
-								}
-							}
+							onTagClick={toggleTag}
+							filter={filter}
 						/>
 					))
 				}
