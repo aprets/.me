@@ -5,7 +5,7 @@ import Image from 'next/image'
 import pfpBlob from 'public/pfp-blob.svg'
 
 import Obfuscate from 'react-obfuscate'
-import {Button, Text, Container, Group, Center, Loader, Paper, Badge, Card, ActionIcon, MultiSelect, Skeleton, Image as MI} from '@mantine/core'
+import {Button, Text, Container, Group, Center, Loader, Paper, Badge, Card, ActionIcon, MultiSelect, Skeleton, Image as MI, Switch, Radio} from '@mantine/core'
 import {FaGithub} from 'react-icons/fa'
 
 import {openModal} from '@mantine/modals'
@@ -72,14 +72,11 @@ function ProjectCard(
 }
 
 export default function Home() {
+	const [filterMode, setFilterMode] = useState<'AND' | 'OR'>('OR')
 	const [filter, setFilter] = useState<Tag[]>([])
-	const filteredProjects = projects.filter(
-		// Only show projects which have all the tags in the filter
-		// aka ensure no project does not include one of the tags in the filter
-		(p) => !filter.some(
-			(t) => !p.tags.includes(t),
-		),
-	)
+	const filteredProjects = filter.length ? projects.filter(
+		filterMode === 'AND' ? (project) => filter.every((tag) => project.tags.includes(tag)) : (project) => filter.some((tag) => project.tags.includes(tag)),
+	) : projects
 	const [animatedParent] = useAutoAnimate<HTMLDivElement>()
 	const toggleTag = (tag: Tag) => () => { setFilter((c) => (c.includes(tag) ? c.filter((t) => t !== tag) : [...c, tag])) }
 	return (
@@ -144,6 +141,7 @@ export default function Home() {
 			<h1 className='font-bold text-3xl mb-4 text-black'>Projects</h1>
 			<h2 className='text-lg mb-4'>Some of the projects I worked on. You can use the filter below to filter by tech or area.</h2>
 			<MultiSelect
+				className='mb-2'
 				classNames={{searchInput: 'leading-none'}}
 				value={filter}
 				onChange={(value) => setFilter(value as Tag[])}
@@ -153,6 +151,15 @@ export default function Home() {
 				clearable
 				searchable
 			/>
+			<Radio.Group
+				label='Mode'
+				value={filterMode}
+				onChange={(value) => setFilterMode(value as typeof filterMode)}
+			>
+				<Radio value='OR' label='Show projects including any of the tags (OR)' />
+				<Radio value='AND' label='Show only the projects that include all selected tags (AND)' />
+			</Radio.Group>
+
 			<div className='grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 leading' ref={animatedParent}>
 				{
 					filteredProjects.map((project) => (
