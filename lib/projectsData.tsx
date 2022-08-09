@@ -166,7 +166,7 @@ export const projects: Project[] = [
 				Personal website that you are currently visiting 🙃. Built in Next.js instead of static generators
 				like <a className='text-inherit' href='https://astro.build/'>Astro</a> to allow for potential future server-side needs.
 				The website is hosted on and load balanced between Vercel and Cloudflare Pages to compare their
-				static hosting and CDN performance. The website is in itself a benchmark collecting page load
+				static hosting and CDN performance. The website is in itself a benchmark, collecting page load
 				statistics between the two platforms. See <Link href='/benchmark'><a className='text-inherit'>/benchmark</a></Link> for more details and results!
 			</>
 		),
