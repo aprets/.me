@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react'
 import {AppProps, NextWebVitalsMetric} from 'next/app'
 import Head from 'next/head'
 import Script from 'next/script'
-import {createEmotionCache, Container, MantineProvider} from '@mantine/core'
+import {Container, MantineProvider} from '@mantine/core'
 import {ModalsProvider} from '@mantine/modals'
 
 import {hotjar} from 'react-hotjar'
@@ -16,6 +16,7 @@ import {GoogleAnalytics} from 'components/GoogleAnalytics'
 import {hostTag, setMetrics} from 'lib/hostBenchmark'
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
 import LogRocket from 'logrocket'
+import {emotionCache} from 'lib/emotionCache'
 
 let gotBenchmarkVitals = false
 let fcp: number | undefined
@@ -37,8 +38,6 @@ export function reportWebVitals(metric: NextWebVitalsMetric) {
 		setMetrics({fcp, ttfb})
 	}
 }
-
-const emotionCache = createEmotionCache({key: 'mantine', prepend: false})
 
 export default function App(props: AppProps) {
 	const {Component, pageProps} = props
