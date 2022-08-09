@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react'
 import {AppProps, NextWebVitalsMetric} from 'next/app'
 import Head from 'next/head'
 import Script from 'next/script'
-import {Container, MantineProvider} from '@mantine/core'
+import {createEmotionCache, Container, MantineProvider} from '@mantine/core'
 import {ModalsProvider} from '@mantine/modals'
 
 import {hotjar} from 'react-hotjar'
@@ -37,6 +37,8 @@ export function reportWebVitals(metric: NextWebVitalsMetric) {
 		setMetrics({fcp, ttfb})
 	}
 }
+
+const emotionCache = createEmotionCache({key: 'mantine', prepend: false})
 
 export default function App(props: AppProps) {
 	const {Component, pageProps} = props
@@ -76,8 +78,9 @@ export default function App(props: AppProps) {
 
 			<QueryClientProvider client={queryClient}>
 				<MantineProvider
-					withGlobalStyles
-					withNormalizeCSS
+					// withGlobalStyles
+					// withNormalizeCSS
+					emotionCache={emotionCache}
 					theme={theme}
 				>
 					<ModalsProvider>

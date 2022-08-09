@@ -1,6 +1,6 @@
 import {Tuple, DefaultMantineColor, MantineThemeOverride} from '@mantine/core'
 
-const mantineTailwindColors: Record<string, Tuple<string, 10>> = {
+const mantineTailwindColors = {
 	slate: [
 		'#f8fafc', '#f1f5f9',
 		'#e2e8f0', '#cbd5e1',
@@ -167,5 +167,5 @@ declare module '@mantine/core' {
 
 export const theme: MantineThemeOverride = {
 	primaryColor: 'purple',
-	colors: mantineTailwindColors,
+	colors: mantineTailwindColors as unknown as Record<string, Tuple<string, 10>>,
 }
