@@ -48,6 +48,7 @@ export const tagAreas = {
 		'Next',
 		'Vite',
 		'Jamstack',
+		'CMS',
 		'Contentful',
 		'Kontent',
 		'Tailwind CSS',
@@ -161,14 +162,14 @@ export const projects: Project[] = [
 		description: (
 			<>
 				Co-designed and developed a next-generation toolkit for website development and management at Elanco.
-				Tightly integrated TypeScript, React, Next.js with Kentico Konent Headless CMS to produce an intuitive visual
+				Tightly integrated TypeScript, React, Next.js with Kentico Kontent Headless CMS to produce an intuitive visual
 				“What You See Is What You Get” website building and editing experience which was drastically more flexible and capable.
 				The new solution significantly reduced time to market and brought order of magnitude cost savings.
 				Worked with users and stakeholders to collect feedback and enhance the solution.
 				The project received C-Level sponsorship, runs over 100 webpages and is used in onboarding of 100+ site rebuilds as part of Bayer acquisition.
 			</>
 		),
-		tags: ['JavaScript', 'TypeScript', 'Node.js', 'Next', 'React', 'Tailwind CSS', 'Kontent', 'Jamstack', 'Microsoft Azure', 'Blob Storage', 'Azure DevOps', 'GitHub Actions', 'Software Engineering', 'Web'],
+		tags: ['JavaScript', 'TypeScript', 'Node.js', 'Next', 'React', 'Tailwind CSS', 'CMS', 'Kontent', 'Jamstack', 'Microsoft Azure', 'Blob Storage', 'Azure DevOps', 'GitHub Actions', 'Software Engineering', 'Web'],
 	},
 	{
 		title: 'aprets.me',
@@ -201,7 +202,7 @@ export const projects: Project[] = [
 		),
 		image: webzImg,
 		githubLink: 'https://github.com/webzvpn',
-		tags: ['PHP', 'VB.NET', 'Docker', 'SQL', 'Google Cloud', 'AWS', 'VMs', 'Containers', 'KVM', 'VMWare', 'Linux', 'Networking', 'VPN', 'Server Management', 'Kali Linux', 'Wireshark', 'mitmproxy', 'Cobalt Strike', 'Shell Script', 'Software Engineering', 'Web', 'Cloud / DevOps', 'InfoSec'],
+		tags: ['PHP', 'VB.NET', 'Docker', 'SQL', 'Google Cloud', 'AWS', 'VMs', 'Containers', 'KVM', 'VMWare', 'Linux', 'Networking', 'VPN', 'Server Management', 'Kali Linux', 'Wireshark', 'mitmproxy', 'Cobalt Strike', 'Shell Script', 'CMS', 'Software Engineering', 'Web', 'Cloud / DevOps', 'InfoSec'],
 	},
 	{
 		title: 'Recruitment & Student Support at Elanco',
@@ -364,7 +365,7 @@ export const projects: Project[] = [
 		),
 		image: chattyChefImg,
 		githubLink: 'https://github.com/aprets/Chatty-Chef',
-		tags: ['JavaScript', 'TypeScript', 'Node.js', 'React', 'Next', 'Contentful', 'Jamstack', 'Python', 'Google Cloud', 'Containers', 'Cloud Functions', 'Firebase', 'Realtime', 'Stripe', 'Mantine', 'Docker', 'GitHub Actions', 'AI', 'NLP', 'Software Engineering', 'Web', 'Cloud / DevOps'],
+		tags: ['JavaScript', 'TypeScript', 'Node.js', 'React', 'Next', 'CMS', 'Contentful', 'Jamstack', 'Python', 'Google Cloud', 'Containers', 'Cloud Functions', 'Firebase', 'Realtime', 'Stripe', 'Mantine', 'Docker', 'GitHub Actions', 'AI', 'NLP', 'Software Engineering', 'Web', 'Cloud / DevOps'],
 	},
 	{
 		title: 'Grocery NLP Chatbot',
