@@ -141,22 +141,34 @@ export const projects: Project[] = [
 		tags: ['JavaScript', 'TypeScript', 'Node.js', 'React', 'Next', 'Google Cloud', 'Containers', 'VMs', 'SQL', 'Docker', 'Terraform', 'Realtime', 'Firebase', 'GitHub Actions', 'Mantine', 'Software Engineering', 'Web', 'Cloud / DevOps'],
 	},
 	{
-		title: 'Ubiquiti Cloudflared',
-		brief: 'Install & Run Cloudflare Tunnel on Ubiquiti network gateways',
+		title: 'Infrastructure Management Automation at Elanco',
+		brief: 'Turned 2 week long processes into a 5 minute automation',
 		description: (
 			<>
-				<a className='text-inherit' href='https://https://dash.teams.cloudflare.com/'>Cloudflare Tunnel</a> allows for secure
-				remote access to a network with no extra configuration and simple remote management from Cloudflare Zero Trust Dashboard.
-				This project provides the scripts to install cloudflared (which can create a tunnel to the network) on a
-				{' '}<a className='text-inherit' href='https://store.ui.com/products/unifi-security-gateway'>USG</a>.
-				This allows for creation of a tunnel to a network without any additional hardware.
-				The scripts use the semi-reverse-engineered boot sequence configuration of EdgeOS and run the tunnel in parallel to all
-				the core functionality of the gateway.
+				Lead a small team in automating Elanco&apos;s infrastructure management process.
+				Turned multiple manual infrastructure requests that took 2 weeks to complete into an automation which required
+				no cloud platform knowledge and took 5 minutes to run. Used Infrastructure-as-code, Node.js, Terraform and deeply
+				integrated with GitHub, GitHub Actions and Azure DevOps APIs to simplify infrastructure management. Successfully
+				presented the solution to the company&apos;s CTO leading to the tool&apos;s use as a basis for automation work both internally
+				and on external vendor projects.
 			</>
 		),
-		image: ubntImg,
-		githubLink: 'https://github.com/aprets/ubnt-cloudflared',
-		tags: ['Linux', 'Shell Script', 'Reverse Engineering', 'Networking', 'Server Management', 'InfoSec'],
+		tags: ['JavaScript', 'TypeScript', 'Node.js', 'Express', 'Terraform', 'Microsoft Azure', 'Google Cloud', 'Containers', 'Cloud Functions', 'Azure DevOps', 'GitHub Actions', 'Networking', 'Software Engineering', 'Web', 'Cloud / DevOps'],
+	},
+	{
+		title: 'Next Generation Website Toolkit at Elanco',
+		brief: 'Overhauled website development and management experience',
+		description: (
+			<>
+				Co-designed and developed a next-generation toolkit for website development and management at Elanco.
+				Tightly integrated TypeScript, React, Next.js with Kentico Konent Headless CMS to produce an intuitive visual
+				“What You See Is What You Get” website building and editing experience which was drastically more flexible and capable.
+				The new solution significantly reduced time to market and brought order of magnitude cost savings.
+				Worked with users and stakeholders to collect feedback and enhance the solution.
+				The project received C-Level sponsorship, runs over 100 webpages and is used in onboarding of 100+ site rebuilds as part of Bayer acquisition.
+			</>
+		),
+		tags: ['JavaScript', 'TypeScript', 'Node.js', 'Next', 'React', 'Tailwind CSS', 'Kontent', 'Jamstack', 'Microsoft Azure', 'Blob Storage', 'Azure DevOps', 'GitHub Actions', 'Software Engineering', 'Web'],
 	},
 	{
 		title: 'aprets.me',
@@ -173,6 +185,51 @@ export const projects: Project[] = [
 		image: apretsImg,
 		githubLink: 'https://github.com/aprets/.me',
 		tags: ['JavaScript', 'TypeScript', 'React', 'Next', 'Jamstack', 'Tailwind CSS', 'Mantine', 'Cloud Functions', 'Cloudflare Workers', 'Cloudflare Workers KV', 'Software Engineering', 'Web'],
+	},
+	{
+		title: 'Webz VPN',
+		brief: 'A VPN business I ran while in High School',
+		description: (
+			<>
+				A profitable VPN service fully developed and managed by me which had multiple UK servers and over 100 customers.
+				Set up the server and cloud infrastructure for a VPN service to function.
+				Designed Docker micro-services for the service.
+				Developed and deployed custom OpenVPN based software for clients to connect to the service.
+				Installed and managed a billing solution to receive payments from customers. Provided customer support to users of the service.
+				Operations were halted due to the business taking too much of my personal time while in University.
+			</>
+		),
+		image: webzImg,
+		githubLink: 'https://github.com/webzvpn',
+		tags: ['PHP', 'VB.NET', 'Docker', 'SQL', 'Google Cloud', 'AWS', 'VMs', 'Containers', 'KVM', 'VMWare', 'Linux', 'Networking', 'VPN', 'Server Management', 'Kali Linux', 'Wireshark', 'mitmproxy', 'Cobalt Strike', 'Shell Script', 'Software Engineering', 'Web', 'Cloud / DevOps', 'InfoSec'],
+	},
+	{
+		title: 'Recruitment & Student Support at Elanco',
+		brief: 'Helped technically assess candidates & mentored university students',
+		description: (
+			<>
+				Took part in the recruitment process for Software Engineering and IT roles. Designed and assessed technical interviews
+				and helped with interviewing applicants and evaluating their performance. Participated in two “Client Projects” with
+				Sheffield Hallam University where students worked on projects with Elanco as a client. Attended multiple meetings as an
+				engineer from Elanco&apos;s side to work with the students to convert requirements to more detailed designs and then solutions.
+				Assisted with implementation details to meet Elanco&apos;s standards. This included mentoring different students and groups
+				in multiple engagements with Sheffield Hallam University.
+			</>
+		),
+		tags: ['JavaScript', 'Python', 'Node.js', 'Express', 'React', 'Microsoft Azure', 'AI', 'Software Engineering', 'Web', 'Cloud / DevOps', 'InfoSec'],
+	},
+	{
+		title: 'Google Cloud Migration at Elanco',
+		brief: 'Explored, analysed and evaluated the platform to improve operations',
+		description: (
+			<>
+				Worked with Google Cloud representatives during Google Cloud migration to analyse and evaluate cloud services new to the company,
+				design and redefine architectures compatible with existing processes. Used Infrastructure-as-Code and Terraform to explore and
+				implement designed architectures in practice evaluating real-world performance and limitations. Heavily pushed for use of innovative
+				services such as Cloud Run resulting in better performance and orders of magnitude cost savings.
+			</>
+		),
+		tags: ['Terraform', 'SQL', 'Firebase', 'MongoDB', 'Google Cloud', 'Microsoft Azure', 'Containers', 'Docker', 'Networking', 'Linux', 'Software Engineering', 'Web', 'Cloud / DevOps'],
 	},
 	{
 		title: 'Conventional Commits GitHub Action',
@@ -206,6 +263,94 @@ export const projects: Project[] = [
 		image: infraryImg,
 		githubLink: 'https://github.com/aprets/infrary',
 		tags: ['Python', 'Docker', 'JavaScript', 'Vue', 'Flask', 'MongoDB', 'Google Datastore', 'Shell Script', 'Server Management', 'Linux', 'Jamstack', 'Google Cloud', 'Containers', 'Software Engineering', 'Web', 'Cloud / DevOps', 'InfoSec'],
+	},
+	{
+		title: 'IT at Prets Industriepark',
+		brief: 'Office IT',
+		description: (
+			<>
+				Designed, implemented and managed all office IT infrastructure. Installed HPE/Dell servers (including OS installation and management).
+				Designed and managed LAN and WLAN networks with Ubiquiti Hardware (Routers, Switches, Access Points). Set up and managed
+				a VMware vSphere including all the underlying software and hardware. Monitored IT Infrastructure and networks to maintain availability.
+				Troubleshooted IT infrastructure as well as office hardware and software (PCs, Mobile Phones, Laptops).
+			</>
+		),
+		tags: ['AWS', 'Containers', 'Docker', 'VMs', 'KVM', 'VMWare', 'Linux', 'Networking', 'VPN', 'Server Management', 'Kali Linux', 'mitmproxy', 'Cobalt Strike', 'WiFi Pineapple', 'USB Rubber Ducky', 'SQL', 'Shell Script', 'PowerShell', 'Cloud / DevOps', 'InfoSec'],
+	},
+	{
+		title: 'Quality & Security Testing Framework at Elanco',
+		brief: 'Improved and unified software quality and security testing',
+		description: (
+			<>
+				Designed and developed a Software Quality and Security Testing Framework for the DevOps team. Replaced multiple
+				fragmented CI pipelines with a powerful and easy-to-use unified Python powered solution. Automatically identified
+				and classified different parts of the codebase to run a maximally comprehensive suite of quality and security tests.
+				Deeply integrated with Azure DevOps (API) to collect data and utilise its UI to display results, hints and suggestions
+				as well as allow for project configuration. Provided more powerful scanning and testing capabilities and improved user
+				experience by directly highlighting code snippets in question in Azure DevOps UI and providing comprehensive guidance on
+				resolving issues. Final solution only required one line of code to use.
+			</>
+		),
+		tags: ['Python', 'Microsoft Azure', 'Azure DevOps', 'Software Engineering', 'Cloud / DevOps', 'InfoSec'],
+	},
+	{
+		title: 'Ubiquiti Cloudflared',
+		brief: 'Install & Run Cloudflare Tunnel on Ubiquiti network gateways',
+		description: (
+			<>
+				<a className='text-inherit' href='https://https://dash.teams.cloudflare.com/'>Cloudflare Tunnel</a> allows for secure
+				remote access to a network with no extra configuration and simple remote management from Cloudflare Zero Trust Dashboard.
+				This project provides the scripts to install cloudflared (which can create a tunnel to the network) on a
+				{' '}<a className='text-inherit' href='https://store.ui.com/products/unifi-security-gateway'>USG</a>.
+				This allows for creation of a tunnel to a network without any additional hardware.
+				The scripts use the semi-reverse-engineered boot sequence configuration of EdgeOS and run the tunnel in parallel to all
+				the core functionality of the gateway.
+			</>
+		),
+		image: ubntImg,
+		githubLink: 'https://github.com/aprets/ubnt-cloudflared',
+		tags: ['Linux', 'Shell Script', 'Reverse Engineering', 'Networking', 'Server Management', 'InfoSec'],
+	},
+	{
+		title: 'Property Management System',
+		brief: 'A custom property management system for a small real estate business',
+		description: (
+			<>
+				Built as a Jamstack application, the system is designed to be easily extensible and easy to use. It accommodates
+				common workflows with a highly interactive and powerful UI. Many common processes are automated. Bank accounts are
+				deeply integrated and automatically synchronized with the system via TrueLayer APIs.
+			</>
+		),
+		image: pmsImg,
+		tags: ['JavaScript', 'TypeScript', 'React', 'Next', 'Chakra UI', 'Python', 'Flask', 'Google Cloud', 'Cloud Functions', 'Firebase', 'Google Datastore', 'GitHub Actions', 'TrueLayer', 'AI', 'NLP', 'Software Engineering', 'Web', 'Cloud / DevOps'],
+	},
+	{
+		title: 'App & Infrastructure Process Optimisation at Elanco',
+		brief: 'Helped improve and digitise internal processes',
+		description: (
+			<>
+				Worked with stakeholders to further streamline and automate Elanco&apos;s infrastructure and application processes.
+				Developed an internal Express.js REST API offering unified visibility into existing and future applications,
+				their characteristics and performance. Additionally developed a powerful React and Tailwind CSS based web interface to query the API.
+				This provided rich reports on applications individually, in groups, by technologies / software stack / internal organisational units etc.
+				Further extended and iterated on the project for it to take over part of the application approval and deployment process entirely.
+			</>
+		),
+		tags: ['JavaScript', 'TypeScript', 'Node.js', 'Express', 'React', 'Ant Design', 'Tailwind CSS', 'Microsoft Azure', 'Cloud Functions', 'Cosmos DB', 'MongoDB', 'Blob Storage', 'Azure DevOps', 'GitHub Actions', 'Software Engineering', 'Web'],
+	},
+	{
+		title: 'DevOps & Automation Dashboard at Elanco',
+		brief: 'Converted complex log-like data to a powerful & intuitive dashboard',
+		description: (
+			<>
+				Designed and developed a dashboard UI for the internal Automation / DevOps framework. Used Express, React.js, Tailwind
+				to convert difficult to trace and navigate log-like data to a user-friendly interactive Web UI. The dashboard presented
+				a holistic overview of past and current automation runs and vastly improved UX by intelligently analysing job and task
+				status and results to surface any issues to the user. Allowed for intuitive interactive traversal and search down the
+				automation hierarchy to simplify troubleshooting.
+			</>
+		),
+		tags: ['JavaScript', 'TypeScript', 'Node.js', 'Express', 'React', 'Tailwind CSS', 'Microsoft Azure', 'Azure DevOps', 'Cosmos DB', 'MongoDB', 'VPN', 'Software Engineering', 'Web'],
 	},
 	{
 		title: 'Chatty Chef',
@@ -242,156 +387,11 @@ export const projects: Project[] = [
 			<>
 				Refactored and updated multiple upstream libraries to support new cloud communications protocol
 				and correctly interact with new AC models. Figured out the correct implementation via reverse
-				engineering original apps, ir remote codes and based on existing libraries.
+				engineering original apps, IR remote codes and based on existing libraries.
 			</>
 		),
 		image: mideaImg,
 		githubLink: 'https://github.com/aprets/midea-ac-lib',
 		tags: ['Python', 'Kali Linux', 'Wireshark', 'mitmproxy', 'WiFi Pineapple', 'Reverse Engineering', 'Networking', 'Software Engineering', 'InfoSec'],
-	},
-	{
-		title: 'Webz VPN',
-		brief: 'A VPN business I ran while in High School',
-		description: (
-			<>
-				A profitable VPN service fully developed and managed by me which had multiple UK servers and over 100 customers.
-				Operations were halted due to the business taking too much of my personal time while in University.
-				Set up the server and cloud infrastructure for a VPN service to function.
-				Designed Docker micro-services for the service.
-				Developed and deployed custom OpenVPN based software for clients to connect to the service.
-				Installed and managed a billing solution to receive payments from customers. Provided customer support to users of the service.
-			</>
-		),
-		image: webzImg,
-		githubLink: 'https://github.com/webzvpn',
-		tags: ['PHP', 'VB.NET', 'Docker', 'SQL', 'Google Cloud', 'AWS', 'VMs', 'Containers', 'KVM', 'VMWare', 'Linux', 'Networking', 'VPN', 'Server Management', 'Kali Linux', 'Wireshark', 'mitmproxy', 'Cobalt Strike', 'Shell Script', 'Software Engineering', 'Web', 'Cloud / DevOps', 'InfoSec'],
-	},
-	{
-		title: 'Infrastructure Management Automation at Elanco',
-		brief: 'Turned 2 week long processes into a 5 minute automation',
-		description: (
-			<>
-				Lead a small team in automating Elanco&apos;s infrastructure management process.
-				Turned multiple manual infrastructure requests that took 2 weeks to complete into an automation which required
-				no cloud platform knowledge and took 5 minutes to run. Used Infrastructure-as-code, Node.js, Terraform and deeply
-				integrated with GitHub, GitHub Actions and Azure DevOps APIs to simplify infrastructure management. Successfully
-				presented the solution to the company&apos;s CTO leading to the tool&apos;s use as a basis for automation work both internally
-				and on external vendor projects.
-			</>
-		),
-		tags: ['JavaScript', 'TypeScript', 'Node.js', 'Express', 'Terraform', 'Microsoft Azure', 'Google Cloud', 'Containers', 'Cloud Functions', 'Azure DevOps', 'GitHub Actions', 'Networking', 'Software Engineering', 'Web', 'Cloud / DevOps'],
-	},
-	{
-		title: 'Next Generation Website Toolkit at Elanco',
-		brief: 'Overhauled website development and management experience',
-		description: (
-			<>
-				Co-designed and developed a next-generation toolkit for website development and management at Elanco.
-				Tightly integrated TypeScript, React, Next.js with Kentico Konent Headless CMS to produce an intuitive visual
-				“What You See Is What You Get” website building and editing experience which was drastically more flexible and capable.
-				The new solution significantly reduced time to market and brought order of magnitude cost savings.
-				Worked with users and stakeholders to collect feedback and enhance the solution.
-				The project received C-Level sponsorship, runs over 100 webpages and is used in onboarding of 100+ site rebuilds as part of Bayer acquisition.
-			</>
-		),
-		tags: ['JavaScript', 'TypeScript', 'Node.js', 'Next', 'React', 'Tailwind CSS', 'Kontent', 'Jamstack', 'Microsoft Azure', 'Blob Storage', 'Azure DevOps', 'GitHub Actions', 'Software Engineering', 'Web'],
-	},
-	{
-		title: 'Google Cloud Migration at Elanco',
-		brief: 'Explored, analysed and evaluated the platform to improve operations',
-		description: (
-			<>
-				Worked with Google Cloud representatives during Google Cloud migration to analyse and evaluate cloud services new to the company,
-				design and redefine architectures compatible with existing processes. Used Infrastructure-as-Code and Terraform to explore and
-				implement designed architectures in practice evaluating real-world performance and limitations. Heavily pushed for use of innovative
-				services such as Cloud Run resulting in better performance and orders of magnitude cost savings.
-			</>
-		),
-		tags: ['Terraform', 'SQL', 'Firebase', 'MongoDB', 'Google Cloud', 'Microsoft Azure', 'Containers', 'Docker', 'Networking', 'Linux', 'Software Engineering', 'Web', 'Cloud / DevOps'],
-	},
-	{
-		title: 'App & Infrastructure Process Optimisation at Elanco',
-		brief: 'Helped improve and digitise internal processes',
-		description: (
-			<>
-				Worked with stakeholders to further streamline and automate Elanco&apos;s infrastructure and application processes.
-				Developed an internal Express.js REST API offering unified visibility into existing and future applications,
-				their characteristics and performance.Additionally developed a powerful React and Tailwind CSS based web interface to query the API.
-				This provided rich reports on applications individually, in groups, by technologies / software stack / internal organisational units etc.
-				Further extended and iterated on the project for it to take over part of the application approval and deployment process entirely.
-			</>
-		),
-		tags: ['JavaScript', 'TypeScript', 'Node.js', 'Express', 'React', 'Ant Design', 'Tailwind CSS', 'Microsoft Azure', 'Cloud Functions', 'Cosmos DB', 'MongoDB', 'Blob Storage', 'Azure DevOps', 'GitHub Actions', 'Software Engineering', 'Web'],
-	},
-	{
-		title: 'Quality & Security Testing Framework at Elanco',
-		brief: 'Improved and unified software quality and security testing',
-		description: (
-			<>
-				Designed and developed a Software Quality and Security Testing Framework for the DevOps team. Replaced multiple
-				fragmented CI pipelines with a powerful and easy-to-use unified Python powered solution. Automatically identified
-				and classified different parts of the codebase to run a maximally comprehensive suite of quality and security tests.
-				Deeply integrated with Azure DevOps (API) to collect data and utilise its UI to display results, hints and suggestions
-				as well as allow for project configuration. Provided more powerful scanning and testing capabilities and improved user
-				experience by directly highlighting code snippets in question in Azure DevOps UI and providing comprehensive guidance on
-				resolving issues. Final solution only required one line of code to use.
-			</>
-		),
-		tags: ['Python', 'Microsoft Azure', 'Azure DevOps', 'Software Engineering', 'Cloud / DevOps', 'InfoSec'],
-	},
-	{
-		title: 'DevOps & Automation Dashboard at Elanco',
-		brief: 'Converted complex log-like data to a powerful & intuitive dashboard',
-		description: (
-			<>
-				Designed and developed a dashboard UI for the internal Automation / DevOps framework. Used Express, React.js, Tailwind
-				to convert difficult to trace and navigate log-like data to a user-friendly interactive Web UI. The dashboard presented
-				a holistic overview of past and current automation runs and vastly improved UX by intelligently analysing job and task
-				status and results to surface any issues to the user. Allowed for intuitive interactive traversal and search down the
-				automation hierarchy to simplify troubleshooting.
-			</>
-		),
-		tags: ['JavaScript', 'TypeScript', 'Node.js', 'Express', 'React', 'Tailwind CSS', 'Microsoft Azure', 'Azure DevOps', 'Cosmos DB', 'MongoDB', 'VPN', 'Software Engineering', 'Web'],
-	},
-	{
-		title: 'Recruitment & Student Support at Elanco',
-		brief: 'Helped technically asses candidates & mentored university students',
-		description: (
-			<>
-				Took part in the recruitment process for Software Engineering and IT roles. Designed and assessed technical interviews
-				and helped with interviewing applicants and evaluating their performance. Participated in two “Client Projects” with
-				Sheffield Hallam University where students worked on projects with Elanco as a client. Attended multiple meetings as an
-				engineer from Elanco&apos;s side to work with the students to convert requirements to more detailed designs and then solutions.
-				Assisted with implementation details to meet Elanco&apos;s standards. This included mentoring different students and groups
-				in multiple engagements with Sheffield Hallam University.
-			</>
-		),
-		tags: ['JavaScript', 'Python', 'Node.js', 'Express', 'React', 'Microsoft Azure', 'AI', 'Software Engineering', 'Web', 'Cloud / DevOps', 'InfoSec'],
-	},
-	{
-		title: 'IT at Prets Industriepark',
-		brief: 'Office IT',
-		description: (
-			<>
-				Designed, implemented and managed all office IT infrastructure. Installed HPE/Dell servers (including OS installation and management).
-				Designed and managed LAN and WLAN networks with Ubiquiti Hardware (Routers, Switches, Access Points). Set up and managed
-				a VMware vSphere including all the underlying software and hardware. Monitored IT Infrastructure and networks to maintain availability.
-				Troubleshooted IT infrastructure as well as office hardware and software (PCs, Mobile Phones, Laptops).
-			</>
-		),
-		tags: ['AWS', 'Containers', 'Docker', 'VMs', 'KVM', 'VMWare', 'Linux', 'Networking', 'VPN', 'Server Management', 'Kali Linux', 'mitmproxy', 'Cobalt Strike', 'WiFi Pineapple', 'USB Rubber Ducky', 'SQL', 'Shell Script', 'PowerShell', 'Cloud / DevOps', 'InfoSec'],
-	},
-	{
-		title: 'Property Management System',
-		brief: 'A custom property management system for a small real estate business',
-		description: (
-			<>
-				Built as a Jamstack application, the system is designed to be easily extensible and easy to use. It accommodates
-				common workflows with a highly interactive and powerful UI. Many common processes are automated. Bank accounts are
-				deeply integrated and automatically synchronized with the system via TrueLayer APIs.
-			</>
-		),
-		image: pmsImg,
-		tags: ['JavaScript', 'TypeScript', 'React', 'Next', 'Chakra UI', 'Python', 'Flask', 'Google Cloud', 'Cloud Functions', 'Firebase', 'Google Datastore', 'GitHub Actions', 'TrueLayer', 'AI', 'NLP', 'Software Engineering', 'Web', 'Cloud / DevOps'],
 	},
 ]
