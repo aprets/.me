@@ -24,6 +24,7 @@ function ProjectCard(
 					<Image
 						src={image}
 						layout='fill'
+						placeholder='blur'
 						alt={title}
 						className='cursor-pointer object-cover'
 						onClick={() => openModal({
