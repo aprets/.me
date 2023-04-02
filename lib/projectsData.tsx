@@ -124,7 +124,7 @@ export const projects: Project[] = [
 			</>
 		),
 		image: signaturImg,
-		// githubLink: 'https://github.com/aprets/signatur',
+		githubLink: 'https://github.com/aprets/signatur',
 		tags: ['JavaScript', 'TypeScript', 'Vite', 'Tailwind CSS', 'IndexedDB', 'Software Engineering', 'Web'],
 	},
 	{
