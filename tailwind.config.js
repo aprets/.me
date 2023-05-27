@@ -1,32 +1,17 @@
-// eslint-disable-next-line import/no-extraneous-dependencies, @typescript-eslint/no-var-requires
-const colors = require('tailwindcss/colors')
-
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-	important: '#__next',
-	content: [
-		'./pages/**/*.{js,ts,jsx,tsx}',
-		'./components/**/*.{js,ts,jsx,tsx}',
-	],
-	theme: {
-		extend: {
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {
+    extend: {
 			colors: {
 				primary: colors.purple,
 				secondary: colors.indigo,
 			},
-			fontFamily: {
-				sans: [
-					'-apple-system',
-					'BlinkMacSystemFont',
-					'Segoe UI',
-					'Roboto',
-					'Helvetica',
-					'Arial',
-					'sans-serif',
-					'Apple Color Emoji',
-					'Segoe UI Emoji',
-				],
-			},
-		},
-	},
-	plugins: [],
+    },
+  },
+  plugins: [],
 }

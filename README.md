@@ -1,48 +1,34 @@
-# 👋 [aprets.me](https://aprets.me)
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-*TBD*
+## Getting Started
 
-## Tech
-*TBD*
+First, run the development server:
 
-## Purpose
-*TBD*
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+```
 
-## Use
-*TBD*
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## 👩‍💻 Getting Started with development
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-Have an up to date version of Node.js 14+ installed, ideally with `yarn` installed as well
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-Clone the repository
+## Learn More
 
-Optionally open VSCode in this directory
+To learn more about Next.js, take a look at the following resources:
 
-Don't forget to install dependencies with `yarn` or `yarn install`
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can now run the next dev server with `yarn dev`.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-### Commands
-There are some useful commands (found inside `package.json`) that you can run to help you with development.
+## Deploy on Vercel
 
-#### `yarn dev`
-Starts a development server. There is hot-reloading (changes apply without refresh) so you can easily view and test the app during dev. 
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-#### `yarn build`
-Creates a production-ready, optimized build of the website. Once the app is built, you can use `yarn start` (see below) to use it.
-
-#### `yarn start`
-Starts the production server. Please make sure to run `yarn build` first to build the latest version of the app before starting the prod server.
-
-#### `yarn lint`
-Runs the linter (ESLint) on all of the website code. This will check for any warnings or critical lint suggestions.
-
-## 🏗️ Structure
-[Standard Next.js layout](https://nextjs.org/docs/getting-started)
-
-`/pages` for all website
-
-`/lib` for any helpers or libraries
-
-`/components` for any JSX / React components
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

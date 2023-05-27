@@ -1,8 +1,0 @@
-name = "stats"
-main = "src/index.ts"
-compatibility_date = "2022-07-31"
-
-
-kv_namespaces = [
-	{ binding = "STATS", id = "75a9b3d9a0014c79a306c1a2e8b3fa66", preview_id = "75a9b3d9a0014c79a306c1a2e8b3fa66" },
-]

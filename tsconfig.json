@@ -1,33 +1,29 @@
 {
+  "extends": "@aprets/config/tsconfig",
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "incremental": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "jsxImportSource": "@emotion/react",
-    "strict": true,
-    "baseUrl": ".",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.js",
-  ],
-  "exclude": [
-    "node_modules",
-    "cf-workers"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }
