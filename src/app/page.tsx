@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import pfpBlob from 'public/pfp-blob.svg';
+import pfp from 'public/pfp.svg';
 
 import { SkillsAndProjects } from '@/components/skills-and-projects';
 
@@ -36,14 +37,17 @@ const Home = () => (
         </p>
       </div>
       <div className="flex justify-center">
-        <Image
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-          src={pfpBlob}
-          height={364}
-          priority
-          alt="Profile"
-          title="I am under the water. Please help me."
-        />
+        <div className="blob-bg h-96 w-96 flex justify-center">
+          <Image
+            className="pfp-transform"
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+            src={pfp}
+            height={225}
+            priority
+            alt="Profile"
+            title="I am under the water. Please help me."
+          />
+        </div>
       </div>
     </div>
     <SkillsAndProjects />
