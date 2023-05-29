@@ -9,7 +9,7 @@ export const Combobox = <T extends string>({
   selected,
   setSelected,
 }: {
-  options: T[];
+  options: readonly T[];
   selected: T[];
   setSelected: Dispatch<SetStateAction<T[]>>;
 }) => {
@@ -37,7 +37,7 @@ export const Combobox = <T extends string>({
                 {selected.map((option) => (
                   <span
                     key={option}
-                    className="flex items-center gap-1 rounded bg-primary-100 px-2 py-0.5 text-neutral-900"
+                    className="flex items-center gap-1 rounded-full bg-primary-100 px-2 py-0.5 text-neutral-900"
                   >
                     <span>{option}</span>
                     <HiXMark
@@ -53,6 +53,7 @@ export const Combobox = <T extends string>({
                 ))}
                 <HuiCombobox.Input
                   ref={comboboxInputRef}
+                  value={query}
                   onChange={(event) => setQuery(event.target.value)}
                   className="border-none p-0 focus:ring-0 flex-grow"
                   placeholder="Search or pick tags..."
@@ -66,6 +67,8 @@ export const Combobox = <T extends string>({
                     e.preventDefault();
                     e.stopPropagation();
                     setSelected([]);
+                    setQuery('');
+                    comboboxInputRef.current?.focus();
                   }
                 }}
               >
