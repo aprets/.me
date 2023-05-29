@@ -9,24 +9,24 @@ const Home = () => (
   <main>
     <div className="flex flex-col-reverse md:flex-row justify-between mb-24">
       <div className="flex flex-col">
-        <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-2 mt-8 text-black">Artur Prets</h1>
-        <h2 className="text-lg text-gray-700">
+        <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-2 mt-8 text-neutral-900">Artur Prets</h1>
+        <h2 className="text-lg text-neutral-700">
           Full-Stack / Cloud / Serverless / DevOps / Software / Networking / Security
         </h2>
-        <p className="text-lg mt-6 mb-12">
+        <p className="text-lg mt-6 mb-12 text-neutral-700">
           Passionate about web, cloud, software and tech in general.
           <br />
           See below for my links, contact details and projects.
         </p>
-        <p className="mb-3">
+        <p className="mb-3 text-neutral-900">
           <span className="text-lg underline decoration-secondary-500 decoration-2">waaa</span>
         </p>
-        <p className="mb-3">
+        <p className="mb-3 text-neutral-900">
           <a className="text-lg underline decoration-secondary-500 decoration-2" href="https://github.com/aprets">
             @aprets on GitHub
           </a>
         </p>
-        <p className="mb-3">
+        <p className="mb-3 text-neutral-900">
           <a
             className="text-lg underline decoration-secondary-500 decoration-2"
             href="https://www.linkedin.com/in/aprets/"
