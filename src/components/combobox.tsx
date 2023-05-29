@@ -4,12 +4,7 @@ import { Dispatch, Fragment, SetStateAction, useRef, useState } from 'react';
 import { Combobox as HuiCombobox, Transition } from '@headlessui/react';
 import { HiChevronUpDown, HiCheck, HiXMark } from 'react-icons/hi2';
 
-type Option = {
-  label: string;
-  value: string;
-};
-
-export const Combobox = <T extends Option>({
+export const Combobox = <T extends string>({
   options,
   selected,
   setSelected,
@@ -41,10 +36,10 @@ export const Combobox = <T extends Option>({
               <span className="flex flex-wrap gap-2">
                 {selected.map((option) => (
                   <span
-                    key={option.value}
+                    key={option}
                     className="flex items-center gap-1 rounded bg-primary-100 px-2 py-0.5 text-neutral-900"
                   >
-                    <span>{option.label}</span>
+                    <span>{option}</span>
                     <HiXMark
                       className="h-4 w-4 cursor-pointer"
                       onClick={(e) => {
@@ -94,10 +89,10 @@ export const Combobox = <T extends Option>({
           <div className="absolute mt-1 w-full rounded-md bg-white shadow-lg">
             <HuiCombobox.Options className="shadow-xs max-h-60 overflow-auto rounded-md py-1 text-base leading-6 focus:outline-none sm:text-sm sm:leading-5">
               {options
-                .filter((option) => option.label.toLowerCase().includes(query.toLowerCase()))
+                .filter((option) => option.toLowerCase().includes(query.toLowerCase()))
                 .map((option) => (
                   <HuiCombobox.Option
-                    key={option.value}
+                    key={option}
                     value={option}
                     className={({ active }) =>
                       `relative cursor-default select-none py-2 pl-3 pr-9 focus:outline-none'
@@ -107,7 +102,7 @@ export const Combobox = <T extends Option>({
                     {({ active, selected: isSelected }) => (
                       <>
                         <span className={`block truncate ${isSelected ? 'font-semibold' : 'font-normal'}`}>
-                          {option.label}
+                          {option}
                         </span>
                         {isSelected && (
                           <span
