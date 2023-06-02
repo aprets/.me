@@ -1,11 +1,14 @@
 'use client';
 
 import { useState } from 'react';
+import { FaGithub } from 'react-icons/fa';
+import Link from 'next/link';
 
 import { Tag, Project, projects, tagAreas, allTags } from '@/lib/projects-data';
 import { Entries } from '@/lib/types';
 
 import { Combobox } from './combobox';
+import { TagBadge } from './tag-badge';
 
 export const SkillsAndProjects = () => {
   const [filterMode, setFilterMode] = useState<'AND' | 'OR'>('OR');
@@ -18,48 +21,44 @@ export const SkillsAndProjects = () => {
   const toggleTag = (tag: Tag) => () => {
     setFilter((c) => (c.includes(tag) ? c.filter((t) => t !== tag) : [...c, tag]));
   };
+
   return (
     <>
-      <h1 className="font-bold text-3xl mb-4 text-neutral-900">Skills</h1>
-      <h2 className="text-lg mb-2 text-neutral-700">
-        Click on a category or skill to add it to the project filter below.
-      </h2>
-      <div className="mb-6">
+      <div className="mx-auto max-w-3xl text-center mt-36">
+        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Skills</h2>
+        <p className="mt-2 text-lg leading-8 text-gray-600">
+          Click on a category or skill to add it to the project filter below.
+        </p>
+      </div>
+      <div className="mt-8">
         {(Object.entries(tagAreas) as Entries<typeof tagAreas>).map(([area, tags]) => (
-          <div key={area} className="mb-2">
+          <div key={area} className="mt-4">
             <button
               type="button"
-              className={`rounded-full cursor-pointer hover:text-primary-600 ${
-                filter.includes(area) ? 'text-primary-700' : 'text-neutral-700'
-              } text-lg font-semibold active:translate-y-[1px] mb-1`}
+              className={`rounded-full cursor-pointer text-lg font-semibold transition-colors ${
+                filter.includes(area) ? 'text-primary-600 hover:text-primary-500' : 'text-gray-700 hover:text-gray-600'
+              }`}
               onClick={toggleTag(area)}
             >
               {area}
             </button>
-            <div className="flex flex-row flex-wrap gap-2">
+            <div className="flex flex-row flex-wrap gap-2 mt-2">
               {tags.map((tag) => (
-                <button
-                  key={tag}
-                  type="button"
-                  className={`border-none rounded-full cursor-pointer hover:bg-primary-100 text-sm line font-medium px-2 py-1 active:translate-y-[1px] ${
-                    filter.includes(tag) ? 'bg-primary-100 text-neutral-800' : 'bg-neutral-100 text-neutral-800'
-                  }`}
-                  onClick={toggleTag(tag)}
-                >
-                  {tag}
-                </button>
+                <TagBadge key={tag} tag={tag} isSelected={filter.includes(tag)} onClick={toggleTag(tag)} />
               ))}
             </div>
           </div>
         ))}
       </div>
-      <h1 className="font-bold text-3xl mb-4 text-neutral-900">Projects</h1>
-      <h2 className="text-lg mb-4 text-neutral-700">
-        Some of the projects I worked on. You can use the filter below to filter by tech or area.
-      </h2>
+      <div className="mx-auto max-w-3xl text-center mt-24 mb-8">
+        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Projects</h2>
+        <p className="mt-2 text-lg leading-8 text-gray-600">
+          Some of the projects I worked on. You can use the filter below to filter by tech or area.
+        </p>
+      </div>
       <Combobox selected={filter} setSelected={setFilter} options={allTags} />
       {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-      <label className="block text-sm font-medium leading-5 text-neutral-700 mt-2">Mode</label>
+      <label className="block text-sm font-medium leading-5 text-gray-700 mt-2">Mode</label>
       <fieldset className="mt-1">
         <legend className="sr-only">Filter mode</legend>
         <div className="space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10">
@@ -74,17 +73,82 @@ export const SkillsAndProjects = () => {
                 id={filterModeOption.value}
                 name="notification-method"
                 type="radio"
-                defaultChecked={filterMode === filterModeOption.value}
-                onClick={() => setFilterMode(filterModeOption.value)}
-                className="h-4 w-4 text-secondary-600 border-gray-300"
+                checked={filterMode === filterModeOption.value}
+                onChange={() => setFilterMode(filterModeOption.value)}
+                className="h-4 w-4 text-secondary-600 border-gray-300 transition-colors"
               />
-              <label htmlFor={filterModeOption.value} className="pl-3 block text-sm font-medium text-neutral-700">
+              <label htmlFor={filterModeOption.value} className="pl-3 block text-sm font-medium text-gray-700">
                 {filterModeOption.label}
               </label>
             </div>
           ))}
         </div>
       </fieldset>
+
+      <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-20 lg:grid-cols-2">
+        {filteredProjects.map((project) => (
+          <article key={project.title} className="flex flex-col items-start justify-between">
+            <div className="relative w-full">
+              <img
+                src={project.image?.src ?? `https://source.unsplash.com/random/?${project.title}`}
+                alt=""
+                className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
+              />
+              <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
+            </div>
+
+            <div>
+              <div className="mt-6 flex flex-wrap items-center gap-2 text-xs">
+                {project.tags.map((tag) => (
+                  <TagBadge key={tag} tag={tag} isSelected={filter.includes(tag)} onClick={toggleTag(tag)} small />
+                ))}
+              </div>
+              <h3 className="mt-6 text-lg font-semibold leading-6 text-gray-900">{project.title}</h3>
+              <h4 className="mt-2 text-sm font-semibold leading-6 text-gray-700">{project.brief}</h4>
+              <p className="mt-3 text-sm leading-6 text-gray-600">{project.description}</p>
+              <p className="mt-3">
+                {project.githubLink || project.websiteLink ? (
+                  <span className="inline-flex gap-x-4">
+                    {project.websiteLink && (
+                      <Link
+                        href={project.websiteLink}
+                        className="inline-flex items-center gap-x-1.5 text-sm font-semibold leading-6 text-secondary-600 hover:text-indigo-500"
+                      >
+                        See website
+                      </Link>
+                    )}
+                    {project.githubLink && (
+                      <Link
+                        href={project.githubLink}
+                        className="inline-flex items-center gap-x-1.5 text-sm font-semibold leading-6 text-secondary-600 hover:text-indigo-500"
+                      >
+                        See on GitHub
+                      </Link>
+                    )}
+                  </span>
+                ) : (
+                  <span className="text-sm font-semibold leading-6 text-gray-600 cursor-not-allowed">
+                    Proprietary project
+                  </span>
+                )}
+              </p>
+
+              {/* <div className="relative mt-8 flex items-center gap-x-4">
+                <img src={project.author.imageUrl} alt="" className="h-10 w-10 rounded-full bg-gray-100" />
+                <div className="text-sm leading-6">
+                  <p className="font-semibold text-gray-900">
+                    <a href={project.author.href}>
+                      <span className="absolute inset-0" />
+                      {project.author.name}
+                    </a>
+                  </p>
+                  <p className="text-gray-600">{project.author.role}</p>
+                </div>
+              </div> */}
+            </div>
+          </article>
+        ))}
+      </div>
     </>
   );
 };

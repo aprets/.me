@@ -105,6 +105,7 @@ export type Project = {
   description: ReactNode;
   image?: StaticImageData;
   githubLink?: string;
+  websiteLink?: string;
   tags: Tag[];
 };
 
@@ -126,7 +127,8 @@ export const projects: Project[] = [
     ),
     image: signaturImg,
     githubLink: 'https://github.com/aprets/signatur',
-    tags: ['JavaScript', 'TypeScript', 'Vite', 'Tailwind CSS', 'IndexedDB', 'Software Engineering', 'Web'],
+    websiteLink: 'https://signatur.aprets.me',
+    tags: ['JavaScript', 'TypeScript', 'React', 'Vite', 'Tailwind CSS', 'IndexedDB', 'Software Engineering', 'Web'],
   },
   {
     title: 'VMote',
