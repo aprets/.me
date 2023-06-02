@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { FaGithub } from 'react-icons/fa';
+import { FaGithub} from 'react-icons/fa';
 import Link from 'next/link';
 
 import { Tag, Project, projects, tagAreas, allTags } from '@/lib/projects-data';
@@ -112,15 +112,15 @@ export const SkillsAndProjects = () => {
                     {project.websiteLink && (
                       <Link
                         href={project.websiteLink}
-                        className="inline-flex items-center gap-x-1.5 text-sm font-semibold leading-6 text-secondary-600 hover:text-indigo-500"
+                        className="inline-flex items-center gap-x-1.5 text-sm font-medium leading-6 text-secondary-600 hover:text-indigo-500"
                       >
-                        See website
+                        Go to website
                       </Link>
                     )}
                     {project.githubLink && (
                       <Link
                         href={project.githubLink}
-                        className="inline-flex items-center gap-x-1.5 text-sm font-semibold leading-6 text-secondary-600 hover:text-indigo-500"
+                        className="inline-flex items-center gap-x-1.5 text-sm font-medium leading-6 text-secondary-600 hover:text-indigo-500"
                       >
                         See on GitHub
                       </Link>
