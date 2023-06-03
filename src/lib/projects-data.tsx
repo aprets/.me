@@ -1,18 +1,19 @@
 import { ReactNode } from 'react';
 import { StaticImageData } from 'next/image';
 import Link from 'next/link';
-import signaturImg from 'public/signatur.png';
-import vmoteImg from 'public/vmote.png';
-import clearpathImg from 'public/clearpath.png';
-import ubntImg from 'public/ubnt-cloudflared.png';
-import apretsImg from 'public/aprets.png';
-import ccImg from 'public/cc-ci.png';
-import infraryImg from 'public/infrary.png';
-import chattyChefImg from 'public/chatty-chef.png';
-import bainImg from 'public/bain.png';
-import mideaImg from 'public/midea.png';
-import pmsImg from 'public/pms.png';
-import webzImg from 'public/webz.png';
+
+import signaturImg from '@/images/signatur.png';
+import vmoteImg from '@/images/vmote.png';
+import clearpathImg from '@/images/clearpath.png';
+import ubntImg from '@/images/ubnt-cloudflared.png';
+import apretsImg from '@/images/aprets.png';
+import ccImg from '@/images/cc-ci.png';
+import infraryImg from '@/images/infrary.png';
+import chattyChefImg from '@/images/chatty-chef.png';
+import bainImg from '@/images/bain.png';
+import mideaImg from '@/images/midea.png';
+import pmsImg from '@/images/pms.png';
+import webzImg from '@/images/webz.png';
 
 export const tagAreas = {
   'Software Engineering': [

@@ -1,8 +1,10 @@
 import Image from 'next/image';
-import pfpBlob from 'public/pfp-blob.svg';
-import pfp from 'public/pfp.svg';
+import Link from 'next/link';
 
+import pfp from '@/images/pfp.svg';
+import { env } from '@/env.mjs';
 import { SkillsAndProjects } from '@/components/skills-and-projects';
+import { ObfuscatedLink } from '@/components/obfuscated-link';
 
 export const runtime = 'edge';
 
@@ -20,7 +22,13 @@ const Home = () => (
           See below for my links, contact details and projects.
         </p>
         <p className="mb-3 text-gray-900">
-          <span className="text-lg underline decoration-secondary-500 decoration-2">waaa</span>
+          <ObfuscatedLink
+            as={Link}
+            className="text-lg underline decoration-secondary-500 decoration-2"
+            href={env.CONTACT_EMAIL_LINK}
+          >
+            {env.CONTACT_EMAIL}
+          </ObfuscatedLink>
         </p>
         <p className="mb-3 text-gray-900">
           <a className="text-lg underline decoration-secondary-500 decoration-2" href="https://github.com/aprets">
