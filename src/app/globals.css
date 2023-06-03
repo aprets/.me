@@ -72,6 +72,11 @@ body {
   animation: hovering 10s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite forwards;
 }
 
+.spammer-no-spamming {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+
 /* 
 :root {
   --foreground-rgb: 0, 0, 0;
