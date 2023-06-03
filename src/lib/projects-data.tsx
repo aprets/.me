@@ -115,14 +115,10 @@ export const projects: Project[] = [
     brief: 'Fast, Free & Private way to sign PDFs',
     description: (
       <>
-        Available at{' '}
-        <a href="https://signatur.aprets.me" className="underline decoration-secondary-500 decoration-2">
-          signatur.aprets.me
-        </a>
-        .<br />A simple static in-browser app that allows you to sign PDFs. Developed due to the apparent lack of
-        simple, free & user-friendly PDF signing solutions. The app is completely client-side and does not send user
-        data to any servers. You can select images of your signatures & initials from your device and the app will place
-        a random initial or signature in the PDF where desired. Once done you can download the signed PDF.
+        A simple static in-browser app that allows you to sign PDFs. Developed due to the apparent lack of simple, free
+        & user-friendly PDF signing solutions. The app is completely client-side and does not send user data to any
+        servers. You can select images of your signatures & initials from your device and the app will place a random
+        initial or signature in the PDF where desired. Once done you can download the signed PDF.
       </>
     ),
     image: signaturImg,
