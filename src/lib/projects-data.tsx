@@ -14,6 +14,14 @@ import bainImg from '@/images/bain.png';
 import mideaImg from '@/images/midea.png';
 import pmsImg from '@/images/pms.png';
 import webzImg from '@/images/webz.png';
+import kontentSpotlightImg from '@/images/kontent-spotlight.png';
+import devopsGraphsImg from '@/images/devops-graphs.jpg';
+import mountainCloudImg from '@/images/mountain-cloud.jpg';
+import pcbCloseUpImg from '@/images/pcb-close-up.jpg';
+import planeCloudImg from '@/images/plane-cloud.jpg';
+import relaxedTeamworkImg from '@/images/relaxed-teamwork.jpg';
+import technologyLightsTunnelImg from '@/images/technology-lights-tunnel.jpg';
+import technologyMonitoringSetupImg from '@/images/technology-monitoring-setup.jpg';
 
 export const tagAreas = {
   'Software Engineering': [
@@ -104,7 +112,7 @@ export type Project = {
   title: string;
   brief: string;
   description: ReactNode;
-  image?: StaticImageData;
+  image: StaticImageData;
   githubLink?: string;
   websiteLink?: string;
   tags: Tag[];
@@ -209,6 +217,7 @@ export const projects: Project[] = [
         and on external vendor projects.
       </>
     ),
+    image: technologyLightsTunnelImg,
     tags: [
       'JavaScript',
       'TypeScript',
@@ -240,6 +249,7 @@ export const projects: Project[] = [
         runs over 100 webpages and is used in onboarding of 100+ site rebuilds as part of Bayer acquisition.
       </>
     ),
+    image: kontentSpotlightImg,
     tags: [
       'JavaScript',
       'TypeScript',
@@ -347,6 +357,7 @@ export const projects: Project[] = [
         This included mentoring different students and groups in multiple engagements with Sheffield Hallam University.
       </>
     ),
+    image: relaxedTeamworkImg,
     tags: [
       'JavaScript',
       'Python',
@@ -373,6 +384,7 @@ export const projects: Project[] = [
         resulting in better performance and orders of magnitude cost savings.
       </>
     ),
+    image: mountainCloudImg,
     tags: [
       'Terraform',
       'SQL',
@@ -469,6 +481,7 @@ export const projects: Project[] = [
         well as office hardware and software (PCs, Mobile Phones, Laptops).
       </>
     ),
+    image: pcbCloseUpImg,
     tags: [
       'AWS',
       'Containers',
@@ -506,6 +519,7 @@ export const projects: Project[] = [
         and providing comprehensive guidance on resolving issues. Final solution only required one line of code to use.
       </>
     ),
+    image: devopsGraphsImg,
     tags: ['Python', 'Microsoft Azure', 'Azure DevOps', 'Software Engineering', 'Cloud / DevOps', 'InfoSec'],
   },
   {
@@ -576,6 +590,7 @@ export const projects: Project[] = [
         for it to take over part of the application approval and deployment process entirely.
       </>
     ),
+    image: planeCloudImg,
     tags: [
       'JavaScript',
       'TypeScript',
@@ -607,6 +622,7 @@ export const projects: Project[] = [
         interactive traversal and search down the automation hierarchy to simplify troubleshooting.
       </>
     ),
+    image: technologyMonitoringSetupImg,
     tags: [
       'JavaScript',
       'TypeScript',
