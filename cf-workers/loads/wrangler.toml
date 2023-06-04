@@ -1,9 +1,0 @@
-name = "loads"
-main = "src/index.ts"
-compatibility_date = "2022-07-31"
-
-
-kv_namespaces = [
-	{ binding = "LOADS", id = "a35c87ea7d22436c98c649be2a47a943", preview_id = "a35c87ea7d22436c98c649be2a47a943" },
-	{ binding = "STATS", id = "75a9b3d9a0014c79a306c1a2e8b3fa66", preview_id = "75a9b3d9a0014c79a306c1a2e8b3fa66" },
-]
