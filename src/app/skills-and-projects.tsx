@@ -87,7 +87,7 @@ export const SkillsAndProjects = () => {
       </fieldset>
 
       <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-20 lg:grid-cols-2">
-        <AnimatePresence>
+        <AnimatePresence initial={false}>
           {filteredProjects.map((project) => (
             <motion.article
               layout
