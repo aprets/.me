@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { YourActualPerformance } from './your-actual-performance';
 
 const Benchmark = () => (
-  <>
+  <main>
     <p className="text-lg max-w-5xl text-gray-700 mb-8">
       This website was originally hosted on both Vercel and Cloudflare Pages to compare the performance of the two.
       Statistics of page load times were stored to compare averages between the two platforms.
@@ -155,6 +155,6 @@ const Benchmark = () => (
         Cloudflare Pages Website
       </Link>
     </div>
-  </>
+  </main>
 );
 export default Benchmark;

@@ -68,3 +68,8 @@ body {
   unicode-bidi: bidi-override;
   direction: rtl;
 }
+
+[data-rmiz], [data-rmiz-content] {
+  position: relative;
+  height: 100%;
+}

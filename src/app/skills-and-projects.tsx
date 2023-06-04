@@ -99,13 +99,14 @@ export const SkillsAndProjects = () => {
               className="flex flex-col items-start justify-between"
             >
               <motion.div layout className="w-full">
-                <div className="relative w-full aspect-[16/9] sm:aspect-[2/1] lg:aspect-[3/2] [&>*]:h-full">
+                <div className="relative w-full aspect-[16/9] sm:aspect-[2/1] lg:aspect-[3/2]">
                   <Zoom>
                     <Image
                       src={project.image}
                       alt=""
                       fill
-                      className="w-full rounded-2xl bg-gray-100 object-cover"
+                      sizes="(max-width: 1024) 100vw, 100vw"
+                      className="relative w-full rounded-2xl bg-gray-100 object-cover"
                       placeholder="blur"
                     />
                   </Zoom>
