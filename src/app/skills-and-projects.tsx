@@ -98,13 +98,14 @@ export const SkillsAndProjects = () => {
               key={project.title}
               className="flex flex-col items-start justify-between"
             >
-              <motion.div layout>
-                <div className="relative w-full">
+              <motion.div layout className="w-full">
+                <div className="relative w-full aspect-[16/9] sm:aspect-[2/1] lg:aspect-[3/2] [&>*]:h-full">
                   <Zoom>
                     <Image
                       src={project.image}
                       alt=""
-                      className="w-full rounded-2xl bg-gray-100 object-cover aspect-[16/9] sm:aspect-[2/1] lg:aspect-[3/2]"
+                      fill
+                      className="w-full rounded-2xl bg-gray-100 object-cover"
                       placeholder="blur"
                     />
                   </Zoom>
