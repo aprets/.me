@@ -3,8 +3,9 @@ import Link from 'next/link';
 
 import pfp from '@/images/pfp.svg';
 import { env } from '@/env.mjs';
-import { SkillsAndProjects } from '@/components/skills-and-projects';
 import { ObfuscatedLink } from '@/components/obfuscated-link';
+
+import { SkillsAndProjects } from './skills-and-projects';
 
 export const runtime = 'edge';
 
