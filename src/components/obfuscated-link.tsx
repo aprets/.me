@@ -9,8 +9,6 @@ const noop = () => {};
 // eslint-disable-next-line unicorn/prefer-spread
 const reverseString = (originalString: string) => originalString.split('').reverse().join('');
 
-type t = AnchorHTMLAttributes<HTMLAnchorElement>['href'];
-
 export const ObfuscatedLink = <
   T extends
     | ComponentType<
