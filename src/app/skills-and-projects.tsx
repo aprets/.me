@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
@@ -12,10 +12,6 @@ import { Combobox } from '@/components/combobox';
 import { TagBadge } from '@/components/tag-badge';
 
 export const SkillsAndProjects = () => {
-  const projectGridRef = useRef<HTMLDivElement>(null);
-  // useEffect(() => {
-  //   if (projectGridRef.current) autoAnimate(projectGridRef.current);
-  // }, [projectGridRef]);
   const [filterMode, setFilterMode] = useState<'AND' | 'OR'>('OR');
   const [filter, setFilter] = useState<Tag[]>([]);
   const filterToUse =

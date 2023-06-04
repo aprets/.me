@@ -7,8 +7,6 @@ import { ObfuscatedLink } from '@/components/obfuscated-link';
 
 import { SkillsAndProjects } from './skills-and-projects';
 
-export const runtime = 'edge';
-
 const Home = () => (
   <main>
     <div className="flex flex-col-reverse md:flex-row justify-between">

@@ -2,8 +2,6 @@ import Link from 'next/link';
 
 import { YourActualPerformance } from './your-actual-performance';
 
-export const runtime = 'edge';
-
 const Benchmark = () => (
   <>
     <p className="text-lg max-w-5xl text-gray-700 mb-8">
