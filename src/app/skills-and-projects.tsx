@@ -1,9 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import { Tag, Project, projects, tagAreas, allTags } from '@/lib/projects-data';
 import { Entries } from '@/lib/types';
@@ -11,6 +12,10 @@ import { Combobox } from '@/components/combobox';
 import { TagBadge } from '@/components/tag-badge';
 
 export const SkillsAndProjects = () => {
+  const projectGridRef = useRef<HTMLDivElement>(null);
+  // useEffect(() => {
+  //   if (projectGridRef.current) autoAnimate(projectGridRef.current);
+  // }, [projectGridRef]);
   const [filterMode, setFilterMode] = useState<'AND' | 'OR'>('OR');
   const [filter, setFilter] = useState<Tag[]>([]);
   const filterToUse =
@@ -86,57 +91,68 @@ export const SkillsAndProjects = () => {
       </fieldset>
 
       <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-20 lg:grid-cols-2">
-        {filteredProjects.map((project) => (
-          <article key={project.title} className="flex flex-col items-start justify-between">
-            <div>
-              <div className="relative w-full">
-                <Zoom>
-                  <img
-                    src={project.image.src}
-                    alt=""
-                    className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
-                  />
-                </Zoom>
-                <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10 pointer-events-none" />
-              </div>
-              <div className="mt-6 flex flex-wrap items-center gap-2 text-xs">
-                {project.tags.map((tag) => (
-                  <TagBadge key={tag} tag={tag} isSelected={filter.includes(tag)} onClick={toggleTag(tag)} small />
-                ))}
-              </div>
-            </div>
+        <AnimatePresence>
+          {filteredProjects.map((project) => (
+            <motion.article
+              layout
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0, transition: { duration: 0.2 } }}
+              key={project.title}
+              className="flex flex-col items-start justify-between"
+            >
+              <motion.div layout>
+                <div className="relative w-full">
+                  <Zoom>
+                    <img
+                      src={project.image.src}
+                      alt=""
+                      className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
+                    />
+                  </Zoom>
+                  <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10 pointer-events-none" />
+                </div>
+                <div className="mt-6 flex flex-wrap items-center gap-2 text-xs">
+                  {project.tags.map((tag) => (
+                    <TagBadge key={tag} tag={tag} isSelected={filter.includes(tag)} onClick={toggleTag(tag)} small />
+                  ))}
+                </div>
+              </motion.div>
 
-            <div>
-              <h3 className="mt-6 text-lg font-semibold leading-6 text-gray-900">{project.title}</h3>
-              <h4 className="mt-2 text-sm font-semibold leading-6 text-gray-700">{project.brief}</h4>
-              <p className="mt-3 text-sm leading-6 text-gray-600">{project.description}</p>
-            </div>
-            <p className="mt-3">
-              {project.githubLink || project.websiteLink ? (
-                <span className="inline-flex gap-x-4">
-                  {project.websiteLink && (
-                    <Link
-                      href={project.websiteLink}
-                      className="inline-flex items-center gap-x-1.5 text-sm font-medium leading-6 text-secondary-600 hover:text-indigo-500"
-                    >
-                      Go to website
-                    </Link>
-                  )}
-                  {project.githubLink && (
-                    <Link
-                      href={project.githubLink}
-                      className="inline-flex items-center gap-x-1.5 text-sm font-medium leading-6 text-secondary-600 hover:text-indigo-500"
-                    >
-                      See on GitHub
-                    </Link>
-                  )}
-                </span>
-              ) : (
-                <span className="text-sm font-medium leading-6 text-gray-600 cursor-default">Proprietary project</span>
-              )}
-            </p>
-          </article>
-        ))}
+              <motion.div layout>
+                <h3 className="mt-6 text-lg font-semibold leading-6 text-gray-900">{project.title}</h3>
+                <h4 className="mt-2 text-sm font-semibold leading-6 text-gray-700">{project.brief}</h4>
+                <p className="mt-3 text-sm leading-6 text-gray-600">{project.description}</p>
+              </motion.div>
+              <motion.p layout className="mt-3">
+                {project.githubLink || project.websiteLink ? (
+                  <span className="inline-flex gap-x-4">
+                    {project.websiteLink && (
+                      <Link
+                        href={project.websiteLink}
+                        className="inline-flex items-center gap-x-1.5 text-sm font-medium leading-6 text-secondary-600 hover:text-indigo-500"
+                      >
+                        Go to website
+                      </Link>
+                    )}
+                    {project.githubLink && (
+                      <Link
+                        href={project.githubLink}
+                        className="inline-flex items-center gap-x-1.5 text-sm font-medium leading-6 text-secondary-600 hover:text-indigo-500"
+                      >
+                        See on GitHub
+                      </Link>
+                    )}
+                  </span>
+                ) : (
+                  <span className="text-sm font-medium leading-6 text-gray-600 cursor-default">
+                    Proprietary project
+                  </span>
+                )}
+              </motion.p>
+            </motion.article>
+          ))}
+        </AnimatePresence>
       </div>
     </>
   );
