@@ -31,7 +31,7 @@ export const Combobox = <T extends string>({
 
       <div className="relative">
         <span className="inline-block w-full rounded-md shadow-sm">
-          <HuiCombobox.Button as="div" className="relative w-full">
+          <HuiCombobox.Button as="div" className="relative w-full" role="button">
             <div className="relative w-full cursor-default rounded-md border border-gray-300 bg-white py-2 pl-2 pr-10 text-left transition duration-150 ease-in-out focus-within:border-primary-700 focus-within:outline-none focus-within:ring-1 focus-within:ring-primary-700 sm:text-sm sm:leading-5">
               <span className="flex flex-wrap gap-2">
                 {options.map((option) => (
@@ -59,21 +59,6 @@ export const Combobox = <T extends string>({
                       }}
                     />
                   </Transition>
-                  // <span
-                  //   key={option}
-                  //   className="flex items-center gap-1 rounded-full bg-primary-100 px-2 py-0.5 text-gray-900"
-                  // >
-                  //   <span>{option}</span>
-                  //   <HiXMark
-                  //     className="h-4 w-4 cursor-pointer"
-                  //     onClick={(e) => {
-                  //       e.stopPropagation();
-                  //       e.preventDefault();
-                  //       setSelected((existing) => existing.filter((p) => p !== option));
-                  //       comboboxInputRef.current?.focus();
-                  //     }}
-                  //   />
-                  // </span>
                 ))}
                 <HuiCombobox.Input
                   ref={comboboxInputRef}
@@ -85,6 +70,7 @@ export const Combobox = <T extends string>({
               </span>
               <button
                 type="button"
+                aria-label={selected.length > 0 ? 'clear' : 'open'}
                 className="absolute inset-y-0 right-0 flex items-center pr-2 rounded-md focus-within:outline-none cursor-pointer"
                 onClick={(e) => {
                   if (selected.length) {
@@ -113,7 +99,7 @@ export const Combobox = <T extends string>({
           leaveTo="opacity-0"
           afterLeave={() => setQuery('')}
         >
-          <div className="absolute mt-1 w-full rounded-md bg-white shadow-lg z-10 border">
+          <div className="absolute mt-1 w-full rounded-md bg-white shadow-lg z-20 border">
             <HuiCombobox.Options className="shadow-xs max-h-60 overflow-auto rounded-md py-1 text-base leading-6 focus:outline-none sm:text-sm sm:leading-5">
               {options
                 .filter((option) => option.toLowerCase().includes(query.toLowerCase()))
