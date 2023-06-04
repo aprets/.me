@@ -34,7 +34,7 @@ const Benchmark = () => (
                 CDN, as the first byte and contentful paint should happen based on the data coming from it.
               </p>
               <p className="mt-4">
-                SServer-side rendered pages and React server components are expected to have worse performance in those
+                Server-side rendered pages and React server components are expected to have worse performance in those
                 metrics, as they have to be rendered at the data centre of Vercel&apos;s infrastructure provider
                 (currently AWS). Although Vercel now also allows opting into{' '}
                 <Link
@@ -118,9 +118,9 @@ const Benchmark = () => (
       </p>
       <p className="mt-4">
         Over the course of the benchmark, the platforms have also been updated, including implementing some of each
-        other's features as described in the above section. However, notably, Vercel has had far and away the best
-        experience in development, deployment and monitoring. Generally, Vercel's offering, while more expensive, is
-        much more polished and ready for use by most web developers. On the other hand, the experience of using
+        other&apos;s features as described in the above section. However, notably, Vercel has had far and away the best
+        experience in development, deployment and monitoring. Generally, Vercel&apos;s offering, while more expensive,
+        is much more polished and ready for use by most web developers. On the other hand, the experience of using
         Cloudflare pages or workers will likely feel somewhat alien and unintuitive to those unfamiliar with the
         platform, even if the technology is incredibly powerful and promising.
       </p>
