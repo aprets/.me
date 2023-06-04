@@ -19,7 +19,7 @@ export const Navbar = ({ links }: NavbarProps) => {
       <Link
         href={url}
         key={label}
-        className={`block py-2 px-3 rounded-md no-underline text-base leading-none font-medium ${
+        className={`block py-2 px-3 rounded-md no-underline text-base leading-none font-medium transition-colors ${
           isActive ? 'text-primary-600 bg-primary-100' : 'text-gray-700 hover:bg-gray-50'
         }`}
       >

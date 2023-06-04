@@ -29,7 +29,7 @@ export const YourActualPerformance = () => {
           >
             <h2 className="text-white font-bold text-2xl mb-1">{stat.title}</h2>
             <p className="text-white font-bold text-3xl mb-2">{stat.stats}</p>
-            <p className="text-white">{stat.description}</p>
+            <p className="text-white leading-7">{stat.description}</p>
           </div>
         ))}
       </div>
