@@ -2,26 +2,26 @@ import { ReactNode } from 'react';
 import { StaticImageData } from 'next/image';
 import Link from 'next/link';
 
-import signaturImg from '@/images/signatur.png';
-import vmoteImg from '@/images/vmote.png';
-import clearpathImg from '@/images/clearpath.png';
-import ubntImg from '@/images/ubnt-cloudflared.png';
-import apretsImg from '@/images/aprets.png';
-import ccImg from '@/images/cc-ci.png';
-import infraryImg from '@/images/infrary.png';
-import chattyChefImg from '@/images/chatty-chef.png';
-import bainImg from '@/images/bain.png';
-import mideaImg from '@/images/midea.png';
-import pmsImg from '@/images/pms.png';
-import webzImg from '@/images/webz.png';
-import kontentSpotlightImg from '@/images/kontent-spotlight.png';
-import devopsGraphsImg from '@/images/devops-graphs.jpg';
-import mountainCloudImg from '@/images/mountain-cloud.jpg';
-import pcbCloseUpImg from '@/images/pcb-close-up.jpg';
-import planeCloudImg from '@/images/plane-cloud.jpg';
-import relaxedTeamworkImg from '@/images/relaxed-teamwork.jpg';
-import technologyLightsTunnelImg from '@/images/technology-lights-tunnel.jpg';
-import technologyMonitoringSetupImg from '@/images/technology-monitoring-setup.jpg';
+import signaturImg from '@/../public/signatur.png';
+import vmoteImg from '@/../public/vmote.png';
+import clearpathImg from '@/../public/clearpath.png';
+import ubntImg from '@/../public/ubnt-cloudflared.png';
+import apretsImg from '@/../public/aprets.png';
+import ccImg from '@/../public/cc-ci.png';
+import infraryImg from '@/../public/infrary.png';
+import chattyChefImg from '@/../public/chatty-chef.png';
+import bainImg from '@/../public/bain.png';
+import mideaImg from '@/../public/midea.png';
+import pmsImg from '@/../public/pms.png';
+import webzImg from '@/../public/webz.png';
+import kontentSpotlightImg from '@/../public/kontent-spotlight.png';
+import devopsGraphsImg from '@/../public/devops-graphs.jpg';
+import mountainCloudImg from '@/../public/mountain-cloud.jpg';
+import pcbCloseUpImg from '@/../public/pcb-close-up.jpg';
+import planeCloudImg from '@/../public/plane-cloud.jpg';
+import relaxedTeamworkImg from '@/../public/relaxed-teamwork.jpg';
+import technologyLightsTunnelImg from '@/../public/technology-lights-tunnel.jpg';
+import technologyMonitoringSetupImg from '@/../public/technology-monitoring-setup.jpg';
 
 export const tagAreas = {
   'Software Engineering': [

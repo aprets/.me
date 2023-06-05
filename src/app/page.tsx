@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import pfp from '@/images/pfp.svg';
+import pfp from '@/../public/pfp.svg';
 import { env } from '@/env.mjs';
 import { ObfuscatedLink } from '@/components/obfuscated-link';
 

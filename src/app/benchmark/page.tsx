@@ -1,6 +1,13 @@
+import type { Metadata } from 'next';
+
 import Link from 'next/link';
 
 import { YourActualPerformance } from './your-actual-performance';
+
+export const metadata: Metadata = {
+  title: 'Benchmark',
+  description: 'Key Web Performance Metrics, Vercel and Cloudflare Pages',
+};
 
 const Benchmark = () => (
   <main>
