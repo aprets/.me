@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import { StaticImageData } from 'next/image';
 import Link from 'next/link';
 
+import cloudFlagsImg from '@/../public/cloudflags.png';
 import signaturImg from '@/../public/signatur.png';
 import vmoteImg from '@/../public/vmote.png';
 import clearpathImg from '@/../public/clearpath.png';
@@ -35,6 +36,7 @@ export const tagAreas = {
     'VB.NET',
     'Go',
     'Node.js',
+    'Edge Computing',
     'Blob Storage',
     'SQL',
     'Cosmos DB',
@@ -50,12 +52,13 @@ export const tagAreas = {
     'NLP',
   ],
   Web: [
-    'Express',
-    'Flask',
-    'React',
-    'Vue',
     'Next',
+    'React',
+    'Express',
+    'Vue',
     'Vite',
+    'Hono',
+    'Flask',
     'Jamstack',
     'CMS',
     'Contentful',
@@ -120,6 +123,31 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: 'CloudFlags',
+    brief: 'Super basic CloudFlare Worker powered feature flag service with a simple API and UI',
+    description: (
+      <>
+        A hyper simplistic feature flag service focused on ease of use and speed. The project is designed to run as a
+        CloudFlare Worker and uses CloudFlare Workers KV for storage. This allows it to run fully on the edge, globally
+        distributed to be closer to the user. There is a simple API for other apps to query one or more feature flags
+        and an easy to use UI for managing the flags. The project is fully built on top of the Hono framework using JSX
+        for templating yet not shipping any JavaScript to the client.
+      </>
+    ),
+    image: cloudFlagsImg,
+    githubLink: 'https://github.com/aprets/cloudflags',
+    tags: [
+      'JavaScript',
+      'TypeScript',
+      'Hono',
+      'Tailwind CSS',
+      'Cloudflare Workers',
+      'Cloudflare Workers',
+      'Software Engineering',
+      'Web',
+    ],
+  },
+  {
     title: 'Signatur',
     brief: 'Fast, Free & Private way to sign PDFs',
     description: (
@@ -134,6 +162,39 @@ export const projects: Project[] = [
     githubLink: 'https://github.com/aprets/signatur',
     websiteLink: 'https://signatur.aprets.me',
     tags: ['JavaScript', 'TypeScript', 'React', 'Vite', 'Tailwind CSS', 'IndexedDB', 'Software Engineering', 'Web'],
+  },
+  {
+    title: 'aprets.me',
+    brief: 'Personal website and experiment ground',
+    description: (
+      <>
+        Personal website that you are currently visiting 🙃. The latest iteration is built in Next.js 13 App Router
+        instead of static generators like Astro for app-like behavior and experiments. The website was previously hosted
+        on and load balanced between Vercel and Cloudflare Pages to compare their static hosting and CDN performance.
+        The website is in itself was benchmark, collecting page load statistics between the two platforms. See{' '}
+        <Link href="/benchmark" className="text-inherit underline decoration-secondary-500 decoration-2">
+          /benchmark
+        </Link>{' '}
+        for more details and results!
+      </>
+    ),
+    image: apretsImg,
+    githubLink: 'https://github.com/aprets/.me',
+    tags: [
+      'JavaScript',
+      'TypeScript',
+      'React',
+      'Next',
+      'Jamstack',
+      'Tailwind CSS',
+      'Mantine',
+      'Edge Computing',
+      'Cloud Functions',
+      'Cloudflare Workers',
+      'Cloudflare Workers KV',
+      'Software Engineering',
+      'Web',
+    ],
   },
   {
     title: 'VMote',
@@ -264,41 +325,6 @@ export const projects: Project[] = [
       'Blob Storage',
       'Azure DevOps',
       'GitHub Actions',
-      'Software Engineering',
-      'Web',
-    ],
-  },
-  {
-    title: 'aprets.me',
-    brief: 'Personal website and Next.js static hosting benchmark',
-    description: (
-      <>
-        Personal website that you are currently visiting 🙃. Built in Next.js instead of static generators like{' '}
-        <a className="text-inherit" href="https://astro.build/">
-          Astro
-        </a>{' '}
-        to allow for potential future server-side needs. The website is hosted on and load balanced between Vercel and
-        Cloudflare Pages to compare their static hosting and CDN performance. The website is in itself a benchmark,
-        collecting page load statistics between the two platforms. See{' '}
-        <Link href="/benchmark" className="text-inherit">
-          /benchmark
-        </Link>{' '}
-        for more details and results!
-      </>
-    ),
-    image: apretsImg,
-    githubLink: 'https://github.com/aprets/.me',
-    tags: [
-      'JavaScript',
-      'TypeScript',
-      'React',
-      'Next',
-      'Jamstack',
-      'Tailwind CSS',
-      'Mantine',
-      'Cloud Functions',
-      'Cloudflare Workers',
-      'Cloudflare Workers KV',
       'Software Engineering',
       'Web',
     ],

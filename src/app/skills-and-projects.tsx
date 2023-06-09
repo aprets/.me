@@ -91,6 +91,7 @@ export const SkillsAndProjects = () => {
         <AnimatePresence initial={false}>
           {filteredProjects.map((project) => (
             <motion.article
+              id={project.title}
               layout
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
