@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 
 import pfp from '@/../public/pfp.svg';
 import { env } from '@/env.mjs';
@@ -22,7 +21,6 @@ const Home = () => (
         </p>
         <p className="mb-3 text-gray-900">
           <ObfuscatedLink
-            as={Link}
             className="text-lg underline decoration-secondary-500 decoration-2"
             href={env.CONTACT_EMAIL_LINK}
           >
@@ -47,7 +45,6 @@ const Home = () => (
         <div className="blob-bg h-96 w-96 flex justify-center">
           <Image
             className="pfp-transform"
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             src={pfp}
             height={225}
             priority

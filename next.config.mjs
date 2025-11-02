@@ -2,9 +2,7 @@ import "./src/env.mjs";
 
 /** @type {import('next').NextConfig} */
 const config = {
-  experimental: {
-    serverActions: true,
-  },
+  cacheComponents: true,
 };
 
 export default config;

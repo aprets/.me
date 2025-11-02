@@ -142,7 +142,6 @@ export const projects: Project[] = [
       'Hono',
       'Tailwind CSS',
       'Cloudflare Workers',
-      'Cloudflare Workers',
       'Software Engineering',
       'Web',
     ],

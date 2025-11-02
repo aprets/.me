@@ -1,24 +1,13 @@
 'use client';
 
-import type { UrlObject } from 'node:url';
-
-import { useState, ComponentType, AnchorHTMLAttributes, MouseEventHandler, FocusEventHandler } from 'react';
+import Link from 'next/link';
+import { useState, type MouseEventHandler, type FocusEventHandler } from 'react';
 
 const noop = () => {};
 
-// eslint-disable-next-line unicorn/prefer-spread
 const reverseString = (originalString: string) => originalString.split('').reverse().join('');
 
-export const ObfuscatedLink = <
-  T extends
-    | ComponentType<
-        Pick<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick' | 'onFocus' | 'onMouseOver' | 'onContextMenu'> & {
-          href: string | UrlObject;
-        }
-      >
-    | 'a',
->({
-  as,
+export const ObfuscatedLink = ({
   children,
   className,
   href,
@@ -28,7 +17,6 @@ export const ObfuscatedLink = <
   onContextMenu = noop,
   ...props
 }: {
-  as?: T;
   children: string;
   className?: string;
   href: string;
@@ -38,9 +26,8 @@ export const ObfuscatedLink = <
   onContextMenu?: MouseEventHandler<Element>;
 }) => {
   const [seemsHuman, setSeemsHuman] = useState(false);
-  const Component = as ?? 'a';
   return (
-    <Component
+    <Link
       className={`${className ?? ''} ${seemsHuman ? '' : 'spammer-no-spamming'}`}
       href={seemsHuman ? href : 'https://youtu.be/dQw4w9WgXcQ'}
       onClick={seemsHuman ? onClick : undefined}
@@ -59,6 +46,6 @@ export const ObfuscatedLink = <
       {...props}
     >
       {seemsHuman ? children : reverseString(children)}
-    </Component>
+    </Link>
   );
 };

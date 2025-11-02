@@ -59,10 +59,8 @@ export const SkillsAndProjects = () => {
         </p>
       </div>
       <Combobox selected={filter} setSelected={setFilter} options={allTags} />
-      {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-      <label className="block text-sm font-medium leading-5 text-gray-700 mt-2">Mode</label>
-      <fieldset className="mt-1">
-        <legend className="sr-only">Filter mode</legend>
+      <fieldset className="mt-3">
+        <legend className="block text-sm font-medium leading-5 text-gray-700 mb-1">Mode</legend>
         <div className="space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10">
           {(
             [

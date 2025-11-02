@@ -20,7 +20,6 @@ const getMetrics = async () => {
   ]);
   return { ttfb, fcp };
 };
-// eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
 const metrics = typeof window === 'undefined' ? (new Promise(() => {}) as Promise<Metrics>) : getMetrics();
 
 export const useWebVitals = () => {
@@ -30,7 +29,6 @@ export const useWebVitals = () => {
       .then((receivedMetrics) => {
         setStateMetrics(receivedMetrics);
       })
-      // eslint-disable-next-line no-console
       .catch(console.error);
   }, []);
   return stateMetrics;
